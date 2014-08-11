@@ -12,7 +12,6 @@ plot_ward = function(data){
   plot(hc)
   list(hc = hc)
 }
-install.packages("fastcluster")
 library(fastcluster)
 library(ggplot2)
 setwd("C:/Users/Andryw/Dropbox/Mestrado/Novos dados/Dados/")
@@ -44,12 +43,13 @@ mydata = mydata[complete.cases(mydata),]
 hc = plot_ward(mydata)$hc
 plot_height(hc)
 
-k_ = 8
-clusters <- cutree(hc, k = k_)
-centroides = sapply(unique(clusters), clust.centroid, mydata, clusters)
-centroides = t(centroides)
-par(mfrow=c(2,6))
-for (i in 1:k_) barplot(centroides[i,][1:8],main=length(mydata[(clusters == i),][,1]))
-title(titulo,outer=TRUE)
-length(mydata[(clusters == i),][,1])
-write.csv(centroides,file="C:\\Users\\Andryw\\Dropbox\\Mestrado\\Novos dados\\Dados\\Criar Gr?fico Bonito\\centroides_conhecidas10.csv")
+for (k_ in 1:12){
+  clusters <- cutree(hc, k = k_)
+  centroides = sapply(unique(clusters), clust.centroid, mydata, clusters)
+  centroides = t(centroides)
+  pdf(file=paste("graph",k_,".pdf",sep=''))
+  par(mfrow=c(2,6))
+  for (i in 1:k_) barplot(centroides[i,][1:8],ylim=c(-1.5,1.5),main=length(mydata[(clusters == i),][,1]))
+  dev.off()
+  write.csv(centroides,file=paste("\\dados\\centroides_conhecidas",k_,".csv",sep=''))
+}
