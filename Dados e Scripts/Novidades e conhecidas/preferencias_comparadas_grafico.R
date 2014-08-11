@@ -2,14 +2,22 @@ setwd("C:/Users/Andryw/Dropbox/Mestrado/Novos dados/Dados/")
 setwd("~/mestrado/Dados e Scripts/Novidades e conhecidas")
 library(ggplot2)
 library(reshape)
+library(ply)
 tudo_junto = read.csv("dados.csv",head=TRUE,sep=",")
 tudo_junto = tudo_junto[complete.cases(tudo_junto),]
 
 #tudo_junto = rename(tudo_junto, c("count_pop.x"="pop_novid", "count_pop.y"="pop_conhec"))
 #tudo_junto = rename(tudo_junto, c("count_sim.x"="fam_novid", "count_sim.y"="fam_conhec"))
 
-tudo_junto = tudo_junto[with(tudo_junto, order(pop_novid + pop_conhec) ) ,]
-tudo_junto1 = tudo_junto[1:10207,c("user","pop_novid","pop_conhec")]
+tudo_junto = tudo_junto[with(tudo_junto, order(sign(fam_novid),sign(fam_conhec), fam_conhec - fam_novid) ) ,]
+tudo_junto1 = tudo_junto[1:10207,c("user","fam_novid","fam_conhec")]
+tudo_junto1$user <- factor(tudo_junto1$user, levels=unique(tudo_junto1$user))
+tudo_junto1 = melt(tudo_junto1)
+
+p = ggplot(data=tudo_junto1, aes(x=value, y=user,group = user, color = variable )) + 
+  geom_line(colour = "black") + geom_point(alpha = 1,size=0.5) + geom_vline(xintercept = 0) 
+p
+
 criaGrafico(tudo_junto1,"pop2.pdf",which.min(abs(tudo_junto1$pop_novid-tudo_junto1$pop_conhec)))
 
 tudo_junto = tudo_junto[with(tudo_junto, order(fam_novid + fam_conhec) ) ,]
@@ -31,6 +39,14 @@ criaGrafico <- function(tudo_junto1,file,inter){
   dev.off()
   
 }
+
+
+tudo_junto$a = min(tudo_junto$fam_novid , tudo_junto$fam_conhec)
+a = data.frame(apply(tudo_junto[,2:3],2,function(x)return(as.numeric(min(x)))))
+
+tudo_junto = tudo_junto[with(tudo_junto, order(min(fam_novid , fam_conhec)) ) ,]
+tudo_junto1 = tudo_junto[1:10207,c("user","fam_novid","fam_conhec")]
+criaGrafico(tudo_junto1,"fam2.pdf",which.min(abs(tudo_junto1$fam_novid-tudo_junto1$fam_conhec)))
 
 
 
