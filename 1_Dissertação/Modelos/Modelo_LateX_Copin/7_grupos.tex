@@ -1,0 +1,142 @@
+\chapter{Grupos de usuários para diferentes aspectos de novidade} \label{sec:grupos}
+
+
+De acordo com os resultados do Capítulo \ref{cap:pref}, há a evidência de diferentes tipos de sujeitos nos nossos dados, de acordo com as preferências pelos aspectos das novidades. Isto nos leva a terceira pergunta de pesquisa: Existem grupos de ouvintes relacionados com as preferências pelos aspectos das novidades baseadas no perfil? Para identificar estes grupos, foi realizado um agrupamento nos dados que caracterizam os sujeitos. Esta análise será descrita neste capítulo.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Conjunto de sujeitos}
+Primeiramente, a análise foi realizada com os dados dos mesmos sujeitos utilizados na análise das preferências dos ouvintes para os aspectos das novidades (Capítulo ~\ref{cap:pref}). Depois, para estudar especificamente os sujeitos com alguma correlação entre preferência e aspectos da novidade, foi feita a análise com dois subconjuntos: o primeiro subconjunto consiste em sujeitos com valor de correlação entre algum aspecto e preferência da novidade maior que 0,15 ou menor que -0,15; o segundo consiste em sujeitos com valor de correlação maior que 0,3 ou menor que -0,3. Os resultados encontrados nas três análises foram similares. Portanto, mostraremos apenas os resultados da primeira análise.%, enquanto os outros resultados estão no apêndice \lma{X}.%
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Dados que caracterizam sujeitos} \label{sec:dadosCaracterizam}
+O objetivo da análise atual é identificar os grupos de ouvintes baseados nas preferências pelos aspectos das novidades comparadas com seus hábitos musicais. A ideia de investigar as métricas relacionadas às novidades e aos hábitos musicais é para saber se o comportamento do ouvinte por novidade é semelhante ao seu comportamento no geral. Foram escolhidas 5 métricas de caracterização dos sujeitos, que podem ser divididas em dois grupos: métricas relacionadas com novidades e métricas relacionadas com os hábitos musicais.
+
+\begin{enumerate}
+	\item \textbf{Relacionadas com novidades}: 	Métricas que caracterizam os sujeitos a partir de suas preferências pelos aspectos das novidades.
+	
+\begin{itemize}
+	\item \textit{Correlação entre a familiaridade das novidades e a atenção total dedicada a elas durante o experimento.}
+		\item \textit{Correlação entre popularidade das novidades e a atenção total dedicada a elas durante o experimento.}
+\end{itemize}
+
+\textit{*Calculamos a correlação (coeficiente de Spearman) entre a atenção total e o período de atenção, e o valor encontrado foi de 0,71. Como ambas as variáveis estão correlacionadas, decidimos utilizar no algoritmo de agrupamento apenas as correlações que envolvem a atenção total.}
+
+	\item  \textbf{Relacionadas com os hábitos musicais}: Métricas que caracterizam os hábitos musicais do sujeito e que podem ser contrastadas com as métricas das novidades.
+	
+	\begin{itemize}
+	\item \textit{Ecleticidade} A ecleticidade representa o quão diferente os artistas do perfil do ouvinte são, de acordo com seus descritores. Sua definição e cálculo foi feito na Subseção ~\ref{subsec:eclet}. A ecleticidade está relacionada com a familiaridade da novidade, pois quanto mais eclético um sujeito for, maior a probabilidade dele ser familiar a vários tipos de novidades.
+	
+		\item \textit{Popularidade média dos artistas do perfil do ouvinte} Esta métrica é útil para comparar com a popularidade das novidades escutadas pelo ouvinte.
+		
+			\item \textit{Proporção de novidades escutadas pelo ouvinte no Período de Observação} Com esta métrica pode-se identificar se o ouvinte possuiu o hábito de escutar muitas ou poucas novidades, no Período de Observação.
+\end{itemize}
+
+\end{enumerate}
+
+
+\section{Algoritmo de agrupamento}
+Para fazer o agrupamento dos sujeitos foi utilizado o algoritmo de agrupamento aglomerativo hierárquico. Como descrito na Seção ~\ref{sec:perfil}, este tipo de algoritmo necessita de uma métrica de dissimilaridade entre os pares de sujeitos e um critério de união que especifica quais grupos unir em cada passo. 
+
+Para calcular a dissimilaridade entre os sujeitos, primeiro foram calculadas as métricas descritas na Seção ~\ref{sec:dadosCaracterizam}. Após o cálculo, estes dados foram normalizados, baseados no Z-Score. Então, a  dissimilaridade entre dois sujeitos foi calculada a partir da distância euclidiana, onde cada sujeito é representado por um vetor contendo as 5 métricas normalizadas. Formalmente, sejam $S$ o conjunto de vetores com dados normalizados que representam cada sujeito; e $x\in S$ e $y\in S$ vetores de dois sujeitos de $S$. $x_i$ representa a posição $i$ do vetor $x$, no caso uma das 5 métricas que caracterizam os sujeitos. A dissimilaridade entre os sujeitos, representada pela dissimilaridade $	\text{disSuj}(x,y) $ dos vetores que os representam é dado pela Equação \ref{eq:a}. Como critério de união, foi utilizado o método Ward \cite{Ward63}. 
+
+\begin{equation}
+	\text{disSuj}(x,y) =  \sqrt{ \sum_{i=1}^5 (x_{i} - y_{i})^2} \label{eq:a}
+\end{equation}
+
+
+
+\section{Escolha do número de grupos}
+
+O método de agrupamento hierárquico não expõe explicitamente o número de grupos resultantes. A cada passo, o algoritmo une dois grupos, até que todos os sujeitos estejam em um só grupo.	Uma abordagem para definir a melhor configuração de número de grupos é o método do joelho \cite{Thorndike}, ao plotar um gráfico onde o eixo X é o número de grupos e o Y um critério de avaliação. A Figura \ref{fig:hetero} mostra a distância média dentro dos grupos para cada configuração de número de grupos. O método de joelho determina escolher uma configuração de grupos que não adicionem muita heterogeneidade, evidenciado a partir da curvatura máxima do gráfico (joelho). Pela figura, a distância média dentro dos grupos começa a aumentar vertiginosamente nas configurações com menos de 7 grupos. Assim, analisamos as configuração com 7 e 8 grupos.
+
+\begin{figure}[htbp]
+\center
+\includegraphics[width=0.7\columnwidth]{media.pdf}
+\caption{Número de grupo X Distância média dentro dos grupos. O joelho do gráfico está em torno da configuração com 7 grupos.}
+  \label{fig:hetero}
+\end{figure} 
+
+A Tabela \ref{tab:tab} mostra os valores dos centróides para a solução de 7 grupos e o centróide criado na solução de 8 grupos (Centróide 8). Como podemos ver, o Centróide 2 é similar ao Centróide 8. Desta maneira, escolhemos a configuração com 7 grupos.
+
+\begin{table} 
+ \begin{center}
+  
+\pgfplotstabletypeset[
+    col sep=semicolon,
+    string type,
+    every head row/.style={before row=\hline,after row=\hline},
+    every last row/.style={after row=\hline},
+    every first column/.style={
+		column type/.add={|}{}
+		},
+		every last column/.style={
+		column type/.add={}{|}
+		}]
+     {centroides_latex.csv}     
+      \caption{Centróides para as configurações com 7 grupos e com 8 grupos}
+      \label{tab:tab}
+    \end{center}
+\end{table}
+
+%","","","media pop","prop novid
+
+\section{Grupos}
+Após a escolha de 7 grupos de ouvintes, utilizamos o centróide de cada grupo para analisar as suas principais características.  A Figura \ref{fig:clusters} representa os valores dos centróides normalizados. 
+Podemos dividir os grupos em dois tipos: o primeiro, onde as características que se destacam são as relacionadas com as preferências pelos aspectos das novidades e o segundo, onde as características que se destacam são as relacionadas com os hábitos musicais dos ouvintes. De acordo com cada centróide, rotulamos os grupos da seguinte forma:
+
+\begin{figure}[htbp]
+\centering
+\includegraphics[scale=1]{clusterstodos1.pdf}
+\caption{Centróides dos 7 grupos encontrados na análise. As métricas estão normalizadas pelo z-score, onde zero representa a média de todos os ouvintes, e a unidade de variação é um desvio padrão, para cada métrica. No eixo vertical, \textit{fam} significa a familiaridade, \textit{pop} significa popularidade, \textit{AT} significa atenção total.}
+  \label{fig:clusters}
+\end{figure} 
+
+%total: 11.449
+\begin{enumerate}
+	\item Grupos marcados pelas preferências pelos aspectos das novidades
+	\begin{enumerate} 
+		\item Averso a artistas diferentes (ou acomodado) [total de ouvintes: 2317 (20\%)]: Maior grupo com característica marcante pelas preferências pelos aspectos das novidades, formado por ouvintes que preferem novidades familiares e populares, além de possuírem hábitos musicais marcados por artistas populares.
+		\item Apreciador de surpresas [total de ouvintes: 1859 (17\%)]: Ouvintes preferem novidades não-familiares e pouco populares. 
+		\item Descobridores do mainstream [total de ouvintes: 1022 (8\%)]: Ouvintes que preferem novidades não-familiares e populares.
+		\item Especializados em seu estilo [total de ouvintes: 1467 (14\%)]: Ouvintes que preferem novidades pouco populares e familiares, além de possuirem pouca ecleticidade.
+	
+	\end{enumerate}
+	\item Grupos marcados pelas características dos hábitos musicais
+	\begin{enumerate}
+		\item Altamente eclético [total de ouvintes: 2456 (21\%)]: Maior grupo de todos, formado por ouvintes que possuem alta ecleticidade
+		\item Exploradores [total de ouvintes: 1047 (9\%)]: Ouvintes que possuem alta proporção de novidades escutadas durante o Período de Observação
+		\item Underground [total de ouvintes: 1281 (11\%)]: Ouvintes com hábito musical marcado por artistas pouco populares.
+	\end{enumerate}
+\end{enumerate}
+
+\section{Discussão dos grupos encontrados}
+
+Encontramos 4 grupos que possuem como características marcantes as preferências pelos aspectos das novidades. Coincidentemente, foram encontrados grupos com todas as combinações possíveis de preferências pelos aspectos. 
+
+O maior destes 4 grupos é o que chamamos \textit{Averso a artistas diferentes}. É um grupo de ouvintes que preferem novidades familiares e populares, além de possuírem hábitos musicais marcados por artistas populares, pouca ecleticidade e proporção mediana de novidades escutadas. É um tipo de ouvinte que não procura expandir seu perfil musical, preferindo escutar o que está na mídia do que ele habitualmente já escuta. A Figura \ref{fig:tudo_alto} representa o perfil de um ouvinte \textit{Averso a artistas diferentes}. Nota-se que as novidades mais preferidas são as mais familiares e mais populares.
+
+\begin{figure}[htbp]
+\center
+\includegraphics[width=0.5\columnwidth]{figs/alto_tudo.png}
+\caption{Perfil de um ouvinte \textit{Averso a artistas diferentes}. Os círculos azuis são os clusters e os vermelhos as novidades. A opacidade dos círculos vermelhos está relacionada com a preferência do ouvinte pela novidade em questão. As novidades mais preferidas são as mais familiares e populares.}
+  \label{fig:tudo_alto}
+\end{figure} 
+
+\begin{figure}[htbp]
+\center
+\includegraphics[scale=0.9]{figs/baixo_tudo.png}
+\caption{Perfil de um ouvinte \textit{Apreciador de surpresas}. As novidades mais preferidas são as menos familiares e menos populares.}
+  \label{fig:baixo_tudo}
+\end{figure} 
+
+Os outros 3 grupos dos marcados pelas preferências pelos aspectos das novidades possuem uma distribuição mais homogênea do número de ouvintes. Opostos aos \textit{Aversos a artistas diferentes}, os \textit{Apreciadores de surpresas} preferem novidades não familiares e não populares, além de possuir pouca ecleticidade. Desta maneira, estes ouvintes normalmente escutam artistas bem parecidos, mas tentam aumentar esse leque de artistas do perfil preferindo novidades não familiares e não populares. Eles preferem surpresas, artistas diferentes do que já escutaram. A Figura \ref{fig:baixo_tudo} representa o perfil de um ouvinte \textit{Apreciador de surpresas}. Nota-se que as novidades mais preferidas são  as menos familiares e menos populares.
+
+
+Os \textit{Descobridores do mainstream} preferem novidades populares, que estão na mídia, mesmo não sendo familiares. Uma possível explicação seria ouvintes que escutam o que está nas paradas das rádios, sem se importar se são parecidos com o que ele escutava antes ou não. Já os \textit{Especializados em seu estilo} preferem novidades familiares e pouco populares, além de possuírem pouca ecleticidade. Esse tipo de ouvinte são fechados no seu nicho de estilos musicais, e ou não preferem o que está na mídia destes estilos, ou já escutaram tudo que está na mídia e agora querem expandir para artistas não populares destes estilos.
+
+Analisando os 3 grupos restantes, o \textit{Altamente eclético} é o grupo de ouvintes com maior ecleticidade, comparando com os demais. Nota-se que neste grupo existem diferentes sujeitos, por que as outras métricas são próximas a zero. O grupo de \textit{Exploradores}, formado por ouvintes com alta proporção de novidades escutadas no período de observação, também possui essa característica do \textit{Altamente eclético}. Por fim, o grupo \textit{Underground} é formado por ouvintes que têm hábito de escutar artistas pouco populares no geral.

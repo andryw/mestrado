@@ -1,0 +1,48 @@
+\chapter{Novidades e descobertas no âmbito musical}
+
+Podemos dividir os trabalhos sobre novidade em três grandes temas: os trabalhos que estudam a faceta da novidade no consumo das pessoas; os trabalhos que retratam soluções de sistemas de recomendação de itens com novidade e trabalhos que tentam identificar grupos de pessoas baseadas no seu comportamento frente a novidades. Neste capítulos mostramos uma visão dos trabalhos destes três temas, explicitando que conceitos e resultados usamos na nossa pesquisa bem como relacionando-os às nossas contribuições. Os trabalhos listados podem envolver estudos sobre novidade tanto no âmbito geral quanto no âmbito musical, como também podem envolver tanto trabalhos sobre comportamento musical frente a novidades como comportamento musical no geral.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Novidade no consumo em geral}
+Vários trabalhos estudam o comportamento de novidade e diversidade no consumo das pessoas. Os consumidores em geral podem possuir comportamento com o intuito de manter a consistência de suas escolhas ou buscar a variedade / novidade. Este tipo de dualidade no comportamento das pessoas pode ser vista em vários contextos, como na escolha de um livro, de um CD, ponto turístico para visita, fazer compras na mesma loja ou em lojas diferentes, entre outros \cite{fishbach}. 
+
+Sobre a busca por novidades no âmbito musical, Laplante \cite{laplante} constata que adolescentes tendem a buscar novidades junto a pessoas com forte ligação a elas, como amigos e familiares. Essa importância da influência social nas preferências musicais das pessoas é atestada em outros estudos \cite{konecni,Hargreaves1999}, que explicam como a música pode moldar uma identididade social do indivíduo. 
+
+Devido a existência desta faceta de varieadade / novidade no consumo das pessoas, construtores de sistemas computacionais, como sistemas de recomendação, estão cada vez mais preocupados em incorporá-la nestes sistemas \cite{Herlocker:2004,vargas:2011}.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Incorporação de novidade em sistemas de recomendação}\label{sec:nov_siscomp}
+
+Muitos dos algoritmos utilizados em sistemas de recomendação de itens e produtos estão interessados em aumentar a acurácia e precisão dos resultados \cite{Herlocker:2004}. O objetivo principal é maximizar a recomendação de itens relevantes ao consumidor. Esses algoritmos, como a filtragem colaborativa \cite{Resnick:1997,Ekstrand:2011} e filtragem baseada em conteúdo \cite{pazzani}, recomendam principalmente itens parecidos com os que já foram consumidos \cite{Herlocker:2004}. Esta forma de recomendação, apesar de aumentar a acurácia dos resultados,  pode gerar um problema, já que negligencia o fator da novidade, que faz parte do comportamento das pessoas \cite{fishbach,ward:2014}. Recomendar ``mais do mesmo'' deixa os usuários do sistema entendiados \cite{Herlocker:2004,Zhang:2012,ward:2014}. Por exemplo, ao pesquisar pelo álbum dos Beatles ``White Album'' no site Amazon.com, as 10 primeiras recomendações são de outros álbuns dos beatles (Figura \ref{fig:beatles}). 
+
+	\begin{figure}[htbp]	
+\begin{center}
+		\fbox{\includegraphics[scale=0.75]{beatles10.jpg}}
+	\end{center}
+	\caption{Álbuns recomendados pelo site Amazon.com ao pesquisar pelo White Album, dos Beatles. Os 10 primeiros são outros álbuns dos Beatles. Busca realizada em Julho de 2014.}
+	\label{fig:beatles}
+\end{figure}
+
+
+Relacionado com essa novidade em sistemas de recomendação, Vargas et al. \cite{vargas:2011} propõem um modelo que relaciona usuários, itens e novidade. Existe uma diferença entre a descoberta (o usuário conhece um item, que deixa de ser novidade), a relevância (item de interesse do usuário) e a escolha (quando o usuário seleciona um item relevante). Além disso, eles apontam que em geral as soluções envolvendo novidades de itens são apresentadas em dois modelos: o modelo baseado em popularidade e o baseado na similaridade de itens previamente expostos. Este tipo de visão da novidade como dois modelos também é corroborado por Beloggin et. al \cite{Bellogin:2010}.
+
+O modelo baseado em popularidade define que a popularidade do item está relacionada à sua descoberta pelas pessoas. Quanto menos popular um item, menos ele foi descoberto pelas pessoas, possuindo uma maior probabilidade de ser novidade para a maioria das mesmas \cite{Celma:2008}.  Vários trabalhos utilizam métricas relacionadas com a popularidade para detectar o quanto os algoritmos estudados expõem novidades \cite{Celma:2008,Ziegler:2005,vargas:2011,Bellogin:2010,Zhang:2012}.
+
+O modelo baseado em similaridade define que há uma maior probabilidade de um item ser novidade para um usuário se este não for similar a outros itens descobertos e escolhidos pelo mesmo. Boa parte das abordagens baseadas neste tipo de modelo agrupam os itens em classes, como uma taxonomia, onde os itens são agrupados / rotulados nas classes a partir da similaridade dos mesmos. Assim, são recomendados para o usuário itens de classes que não são similares a classes anteriormente escolhidas pelo usuário \cite{Nakatsuji:2010,Ziegler:2005,Zhang:2012}.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Grupos de pessoas baseados no comportamento}
+Outro tema estudado no âmbito de novidades é a existência de diferentes grupos com diferentes preferências para novidades. Por exemplo, Munson e Resnick \cite{Munson:2010} descobriram, em um conjunto de usuários online, subgrupos baseados nas preferências por novas opiniões: apreciadores de diversidade, aversos a desafios e buscadores de apoio. Os apreciadores de diversidade são usuários que se interessam tanto por opiniões similares a suas quanto desafiadoras. Eles não se satisfazem com apenas opiniões similares. Já os aversos a desafios se satisfazem mais com opiniões semelhantes, diminuindo a satisfação se lerem opiniões desafiadoras. Já os buscadores de apoio se satisfazem com um certo número de opiniões semelhantes, que suportam seu ponto de vista, sendo indiferentes a demais opiniões conflitantes. Este resultado mostra que diferentes pessoas possuem diferentes comportamentos frente a novidades (no estudo, novas opiniões).
+
+Sobre a existência de diferentes grupos de pessoas no âmbito musical, Jennings \cite{Jennings} sumariza quatro grupos de pessoas baseados no grau de interesse por música: os eruditos, entusiastas, casuais e indiferentes. Os eruditos são pessoas onde a música é parte principal das suas vidas, possuindo conhecimento musical extensivo; os estusiastas são pessoas que consideram música um aspecto muito importante, mas balanceam o interesse com outros temas; os casuais gostam de música mas possuem consideram outros assuntos bem mais importantes e os indiferentes não se interessam por música.
+
+Já Arhippainen \& Hickey \cite{Arhippainen2011} conduziram uma pesquisa qualitativa e identificaram cerca de 14 grupos de ouvintes baseados em como eles escutam e usam música no seu dia a dia. Dentre os 14 grupos, podemos destacar os Ouvintes Indie, que buscam constantemente novas músicas, Ouvintes do Mainstream, que escutam tudo que está na mídia e Ouvintes Passivos, que geralmente escutam o que outras pessoas estão escutando.
+
+\section{Nossas contribuições}
+Apesar de trabalhos passados utilizarem conceitos de novidade, tanto de itens musicais quanto de itens no geral, não foram encontrados estudos que relacionem diferentes aspectos das novidades com a relevância das mesmas para os usuários. Como apontado na Seção \ref{sec:nov_siscomp}, a novidade pode ser modelada em no mínimo dois aspectos. Além disso, O' Celma \cite{Celma:2008} comenta que é importante sabermos a relevância de novidades para os usuários, em um estudo "`centrado no usuário"', para que tenhamos um conhecimento mais completo do seu comportamento. Enquanto algumas abordagens para novidade fazem estudos "`centradas nos itens"', preocupadas principalmente nas características dos itens (como a popularidade).
+
+Assim, nós unimos os aspectos formalizados por Vagas e corroborados em vários estudos com a ideia de relevância (estudo centrado no usuário), que O' Celma \cite{Celma:2008} corrobora a importância. Com essa junção de conceitos podemos responder que aspectos das novidades são relevantes para ouvintes e consumidores musicais.
+
+Além disso, outro resultado do nosso trabalho segue a linha de trabalhos sobre grupo de pessoas baseado no comportamento \cite{Munson:2010;Jennings;Arhippainen2011}. Descobrimos diferentes grupos de ouvintes baseados nas preferências dos mesmos pelos aspectos das novidades. Mesmo em contextos diferentes do trabalho de Munson\cite{Munson:2010} (opiniões e música), podemos notar que novidade não pode ser tratado de forma única para todos os indivíduos. Nossos resultados sugerem que há uma necessidade de tratamento específico para cada grupo, em um sistema computacional como sistema de recomendação, por exemplo. O'Celma \cite{CelmaBook:2010} reforça este tipo de tratamento específico para cada grupo.
+
+Por fim, descobrimos que as preferências dos ouvintes frente aos aspectos dos artistas com novidade são diferentes das preferências frente aos aspectos dos artistas conhecidos. Isso sugere que a novidade no âmbito musical seja estudada especificamente, não podendo generalizar do que o ouvinte já conhece.

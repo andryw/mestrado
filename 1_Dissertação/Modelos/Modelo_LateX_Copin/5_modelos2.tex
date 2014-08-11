@@ -1,0 +1,86 @@
+	\chapter{Modelos} \label{cap:modelos}
+	
+	Após a coleta e filtragem dos dados, utilizamos 3 conceitos para representar as entidades envolvidas no estudo: modelo de perfil do ouvinte, características das novidades e métricas de relevância. Primeiro, foi construindo o modelo do perfil do ouvinte, com o intuito de: gerar uma representação visual do que foi escutado pelo ouvinte; viabilizar o cálculo da familiaridade de um artista para um ouvinte; e gerar uma métrica de ecleticidade. Segundo, foram modeladas as características da novidade a serem utilizadas nos experimentos - familiaridade e popularidade. Por fim, foram modeladas duas métricas que refletem a preferência do ouvinte para um artista, ou a relevância deste artista para o ouvinte, durante um período de tempo - a atenção total e o período de atenção.
+ 
+	\section{Perfil musical do ouvinte}\label{sec:perfil}
+ 
+
+Os artistas do histórico musical utilizados para a construção do perfil foram os que não são novidades e que possuíssem número de execução no histórico do usuário maior que a média do número de execuções total dos artistas do histórico do usuário. Desta maneira utilizamos apenas os artistas mais representativos do perfil do ouvinte.
+
+ 
+
+Os perfis obtidos tiveram média de 33,28 grupos (onde cada grupo possui pelo menos 2 artistas) e desvio padrão de 20,3. A Figura \ref{fig:ecdf_clusters} representa o gráfico de distribuição acumulada do número de grupos de artistas encontrados nos perfis dos sujeitos selecionados em nosso experimento. A Figura \ref{fig:perfis} representa dois exemplos de perfis.
+		\begin{figure}[htbp]	
+\begin{center}
+		\fbox{\includegraphics[scale=0.45]{ecdf_clusters.png}}
+	\end{center}
+	\caption{Distribuição acumulada do número de grupos}
+	\label{fig:ecdf_clusters}
+\end{figure}
+
+A criação do perfil, além de auxiliar na visualização do gosto musical do usuário, evidenciado nas Figuras \ref{fig:perfis}, e do cálculo da familiaridade (Seção ~\ref{sec:familiaridade}), faz parte do cálculo da ecleticidade.	
+
+\begin{figure}
+\subfigure[Perfil com alta ecleticidade.]{
+ \includegraphics[height = 5cm]{figs/cluster_espalhado.png} \label{fig:cluster_muita}}
+ \subfigure[Perfil com baixa ecleticidade]{
+ \includegraphics[height = 5cm]{figs/cluster_junto.png}  \label{fig:cluster_pouca}}
+  \caption{Exemplos de dois perfis de ouvintes. Cada círculo representa um grupo de artistas e a distância entre os círculos é proporcional a similaridade entre os grupos. O tamanho de cada círculo é proporcional a quantidade de músicas dos artistas de cada grupo escutadas pelo ouvinte.}
+  \label{fig:perfis}
+\end{figure} 
+
+
+	\subsection{Ecleticidade} \label{subsec:eclet}
+
+
+A Figura \ref{fig:perfis} compara dois perfis de ouvintes com ecleticidades bastante diferentes. A Figura \ref{fig:cluster_muita} é o perfil de um ouvinte mais eclético que o ouvinte da Figura \ref{fig:cluster_pouca}. Nota-se a diferença de ecleticidade pela distância entre os círculos. Enquanto na Figura \ref{fig:cluster_muita} os círculos estão mais espassados, na Figura \ref{fig:cluster_pouca} os círculos estão mais coesos.
+
+	\section{Características das novidades}  
+	
+
+	\subsection{Familiaridade} 
+
+
+\begin{figure}
+\subfigure[Artistas com novidade]{
+ \includegraphics[width=.45\columnwidth]{figs/ecdf_n_fam.png} \label{fig:ecdf_fam_new}}
+ \subfigure[Artistas conhecidos]{
+ \includegraphics[width=.45\columnwidth]{figs/ecdf_old_fam.png}  \label{fig:ecdf_fam_old}}
+  \caption{Frequência acumulada da familiaridade dos artistas para os ouvintes.}
+  \label{fig:ecdf_fam}
+\end{figure} 
+
+
+
+A Figura \ref{fig:ecdf_fam} representa gráficos da distribuição acumulada da familiaridade dos artistas para os ouvintes. Podemos observar que os valores da familiaridade para os artistas com novidade (Figura \ref{fig:ecdf_fam_new}) são em geral menores que os valores para os artistas conhecidos (Figura \ref{fig:ecdf_fam_old}).
+
+	\subsection{Popularidade}
+O segundo aspecto da novidade estudado foi a popularidade. Para calcular a popularidade, utilizamos o logaritmo na base 10 do número de ouvintes do artista no Last.FM. O logaritmo foi utilizado pois a distribuição da popularidade dos artistas é enviesada (\ref{fig:listeners_lastfm}).
+
+	
+\begin{figure*}[htp]
+  \centering
+  \subfigure[Número de ouvintes dos artistas]{\includegraphics[scale=0.45]{figs/listeners.pdf}\label{fig:listeners}}\quad
+  \subfigure[Número de ouvintes dos artistas (log linear)]{\includegraphics[scale=0.45]{figs/listeners_log.pdf} \label{fig:listeners_log} }
+  \caption{Número de ouvintes dos artistas do Last.fm}
+  \label{fig:listeners_lastfm}
+\end{figure*}
+
+A Figura \ref{fig:ecdf_pop} representa gráficos da distribuição acumulada da popularidade dos artistas escutados pelos ouvintes. Podemos observar que os valores da popularidade dos artistas com novidade (Figura \ref{fig:ecdf_pop_new}) são em geral um pouco menores que os valores para os artistas conhecidos (Figura \ref{fig:ecdf_pop_old}).
+
+\begin{figure}
+\subfigure[Artistas com novidade]{
+ \includegraphics[width=.45\columnwidth]{figs/ecdf_n_pop.png} \label{fig:ecdf_pop_new}}
+ \subfigure[Artistas conhecidos]{
+ \includegraphics[width=.45\columnwidth]{figs/ecdf_old_pop.png}  \label{fig:ecdf_pop_old}}
+  \caption{Frequência acumulada da popularidade dos artistas escutados pelos ouvintes (já com valor transformado pelo log na base 10).}
+  \label{fig:ecdf_pop}
+\end{figure} 
+
+	\section{Preferências}
+	Para mensurar o quanto o ouvinte preferiu a novidade, foram utilizados duas métricas: a atenção total e o período de atenção.  Como novidades podem ser descobertas em todo o Período de Experimento, alguns destes artistas possuem uma janela de tempo no experimento menor (artistas escutadas no final do Período de Experimento). Para contornar esse problema, utilizamos duas soluções. Primeiro, utilizamos como denominador no cálculo das métricas o número de semanas da Janela de Tempo de exposição à novidade, que vai da primeira semana que foi escutada a novidade até o fim do Período de Experimento. Segundo, como mencionado na Seção ~\ref{sec:timeline}, apenas as novidades descobertas no Período de Observação foram consideradas na análise, mas todo o Período de Experimento foi utilizado para cálculo das métricas. Isso dá a cada novidade um mínimo de 6 meses de coleta de dados, que limita um possível viés para Janelas de Tempo pequenas.
+	
+		A atenção total representa a atenção que o ouvinte deu para o artista no Período de Experimento. A atenção total do ouvinte para o artista é representada pelo total de número de execuções de músicas do artista que ele escutou no Período de Experimento, dividido pelo número de semanas de sua Janela de Tempo. 
+		
+			Já o período de atenção o tempo que o ouvinte deu atenção ao artista. Assim, é o número de semanas que o ouvinte escutou o artista dividido pelo número de semanas de sua Janela de Tempo.
+	

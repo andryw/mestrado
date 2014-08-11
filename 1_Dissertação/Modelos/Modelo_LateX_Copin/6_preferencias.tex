@@ -1,0 +1,53 @@
+\chapter{Preferências dos ouvintes para diferentes aspectos de novidades}\label{cap:pref}
+
+Após a coleta e filtragem dos dados, e da modelagem dos conceitos, partimos para responder as perguntas de pesquisa. Este capítulo abrange as duas primeiras perguntas, abordando as preferências dos ouvintes pelos aspectos - familiaridade e popularidade - da novidade, de forma geral e de forma individual.
+
+\section{Preferências gerais}
+Este trabalho visa entender como diferentes aspectos de novidades podem influenciar as preferências de ouvintes por elas. Para esta pesquisa, a primeira pergunta levantada foi: \textit{Há uma correlação geral entre algum aspecto da novidade e as preferências dos ouvintes?} Para responder essa pergunta, calculamos a correlação entre cada aspecto da novidade - familiaridade e popularidade - e cada métrica de preferência - atenção total e período de atenção, de todas as novidades de todos os ouvintes juntas. 
+
+Com todas métricas das novidades em mãos, foi utilizado o método de correlação não-paramétrico de Spearman. O resultado gerado por este método pode variar de -1 a 1. Quanto mais próximo de 1, mais as variáveis estão correlacionadas positivamente - se uma cresce/decresce a outra cresce/decresce. Quanto mais próximo de -1, mais as variáveis estão correlacionadas negativamente - se uma cresce a outra decresce, e vice-versa. Se o valor estiver próximo a 0 não há correlação. 
+
+\begin{table} [htpb]
+ \begin{center}
+  
+ \begin{tabular}{ |c|c|c|c| }
+  \hline
+  Dimensões & F & P \\
+  \hline
+  Período de atenção (PdA)  & 0,08  & 0,07 \\
+  Familiarity (F)   & -  & 0,08 \\
+    \hline
+      \end{tabular}
+      \caption{Correlação (Coeficiente de Spearman) entre aspectos da novidade e preferências, analisando todas as novidades juntas}\label{tab:correlations}
+\end{center}
+\end{table}
+  
+A tabela \ref{tab:correlations} mostra o coeficiente de Spearman para cada par de aspecto da novidade / preferência. Como pode-se ver, todos os valores encontrados da correlação são próximos de zero. \textbf{Podemos concluir que no geral não existe uma correlação entre aspectos e preferências pela novidade, para todos os ouvintes juntos}. Por exemplo, os ouvintes em geral não preferem novidades familiares, ou no geral não preferem novidades não-familiares. Nós levantamos duas hipóteses para explicar esse resultado:
+
+  
+
+\begin{enumerate}
+	\item Diferentes ouvintes possuem diferentes preferências para os aspectos das novidades.
+	Nesta hipótese, cogitamos que diferentes ouvintes possuem diferentes preferências musicais. Assim, existem ouvintes que preferem novidades populares, outros preferem novidades não populares, etc. Colocando todos estes ouvintes juntos, a correlação geral vai ser próxima a zero.
+	
+	\item Individualmente, os ouvintes não preferem um aspecto a outro das novidades.
+	Cada ouvinte pode preferir, por exemplo, tanto novidades familiares quanto não familiares, fazendo com que a correlação entre a preferência e o aspecto das novidades seja próxima a zero.
+\end{enumerate}
+
+\section{Preferências individuais}
+
+O resultado da primeira pergunta de pesquisa e estas hipóteses nos levam à segunda pergunta de pesquisa: individualmente, os ouvintes preferem algum aspecto de novidade? Para saber se os ouvintes possuem alguma correlação entre os aspectos e as preferências das novidades, calculamos as correlações para cada sujeito individualmente. Cerca de 74\% dos sujeitos possuem alguma correlação com valor maior que 0,15 ou menor que -0,15, e cerca de 26\% possuem alguma correlação maior que 0,3 ou menor que -0,3. Desta maneira, individualmente,  boa parte dos ouvintes possuem alguma correlação entre algum aspecto e alguma preferência da novidade. A Figura \ref{fig:correlations_new} mostra a distribuição acumulada dos valores das correlações para cada par aspecto / preferência.
+
+Analisando estes dois resultados juntos, pode-se concluir que, apesar de não existir uma tendência geral quanto às preferências dos sujeitos para os diferentes aspectos das novidades, \textbf{a maior parte dos sujeitos possuem alguma preferência para algum aspecto de novidade no seu comportamento}. Isso sugere a presença de diferentes tipos de ouvintes nos nossos dados. Para identificar estes tipos, foi utilizado um algoritmo de agrupamento nos sujeitos, que será discutido no próximo capítulo. 
+
+\begin{figure*}[htp]
+  \centering
+  \subfigure[Atenção total e familiaridade]{\includegraphics[scale=0.3]{figs/new_TA_F.png}}\quad
+  \subfigure[Atenção total e popularidade]{\includegraphics[scale=0.3]{figs/new_TA_P.png}}
+  \subfigure[Período de atenção e familiaridade]{\includegraphics[scale=0.3]{figs/new_PA_F.png}}\quad
+  \subfigure[Período de atenção e popularidade]{\includegraphics[scale=0.3]{figs/new_PA_P.png}}
+  \caption{Distribuição do coeficiente Spearman de correlação entre os aspectos das novidades e as preferências de cada ouvinte dos dados. As áreas sombreadas representam a parte dos sujeitos com correlação maior que 0.15 e menor que -0.15.}
+  \label{fig:correlations_new}
+\end{figure*}
+
+

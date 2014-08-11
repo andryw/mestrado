@@ -1,0 +1,167 @@
+\begin{thebibliography}{10}
+
+\bibitem{itunes}
+Apple unveils new itunes.
+\newblock
+  https://www.apple.com/pr/library/2012/09/12Apple-Unveils-New-iTunes.html,
+  2012.
+
+\bibitem{Arhippainen2011}
+Leena Arhippainen and Seamus Hickey.
+\newblock {Classifying music user groups and identifying needs for mobile
+  virtual music services}.
+\newblock page 191, 2011.
+
+\bibitem{Bellogin:2010}
+Alejandro Bellog\'{\i}n, Iv\'{a}n Cantador, and Pablo Castells.
+\newblock A study of heterogeneity in recommendations for a social music
+  service.
+\newblock In {\em Proceedings of the 1st International Workshop on Information
+  Heterogeneity and Fusion in Recommender Systems}, HetRec '10, pages 1--8, New
+  York, NY, USA, 2010. ACM.
+
+\bibitem{CelmaBook:2010}
+Oscar Celma.
+\newblock {\em Music Recommendation and Discovery: The Long Tail, Long Fail,
+  and Long Play in the Digital Music Space}.
+\newblock Springer Publishing Company, Incorporated, 1st edition, 2010.
+
+\bibitem{Celma:2008}
+\`{O}scar Celma and Perfecto Herrera.
+\newblock A new approach to evaluating novel recommendations.
+\newblock In {\em Proceedings of the 2008 ACM conference on Recommender
+  systems}, RecSys '08, pages 179--186, New York, NY, USA, 2008. ACM.
+
+\bibitem{Ekstrand:2011}
+Michael~D. Ekstrand, John~T. Riedl, and Joseph~A. Konstan.
+\newblock Collaborative filtering recommender systems.
+\newblock {\em Found. Trends Hum.-Comput. Interact.}, 4(2):81--173, February
+  2011.
+
+\bibitem{fishbach}
+Fishbach, Ayelet, Rebecca~K. Ratner, and Ying Zhang.
+\newblock Inherently loyal or easily bored? nonconscious activation of
+  consistency versus variety-seeking behavior.
+\newblock {\em Journal of Consumer Psychology}, 21(1):38--48, 2011.
+
+\bibitem{goodman1961}
+Leo~A. Goodman.
+\newblock Snowball sampling.
+\newblock {\em The Annals of Mathematical Statistics}, 32(1):148--170, 03 1961.
+
+\bibitem{Hargreaves1999}
+D.~J. Hargreaves and a.~C. North.
+\newblock {The Functions of Music in Everyday Life: Redefining the Social in
+  Music Psychology}.
+\newblock {\em Psychology of Music}, 27(1):71--83, April 1999.
+
+\bibitem{hargreaves:2002}
+David~J. Hargreaves, Dorothy Miell, and Raymond.
+\newblock {\em WHAT ARE MUSICAL IDENTITIES, AND WHY ARE THEY IMPORTANT?}
+\newblock Oxford University Press, USA, 2002.
+
+\bibitem{hastie}
+Trevor Hastie, Robert Tibshirani, and Jerome Friedman.
+\newblock Hierarquical clustering.
+\newblock In {\em The elements of statistical learning: data mining, inference
+  and prediction}. Springer, 2009.
+
+\bibitem{Herlocker:2004}
+Jonathan~L. Herlocker, Joseph~A. Konstan, Loren~G. Terveen, and John~T. Riedl.
+\newblock Evaluating collaborative filtering recommender systems.
+\newblock {\em ACM Trans. Inf. Syst.}, 22(1):5--53, January 2004.
+
+\bibitem{Jennings}
+David Jennings.
+\newblock {\em {Net, Blogs and Rock 'n' Roll: How Digital Discovery Works and
+  What it Means for Consumers}}.
+\newblock Nicholas Brealey Publishing, 2007.
+
+\bibitem{konecni}
+V.~J. Konecni.
+\newblock Social interaction and musical preference.
+\newblock {\em The psychology of music}, pages 497--516, 1982.
+
+\bibitem{lamere:2008}
+Paul Lamere and Elias Pampalk.
+\newblock Social tags and music information retrieval.
+\newblock In Juan~Pablo Bello, Elaine Chew, and Douglas Turnbull, editors, {\em
+  ISMIR}, page~24, 2008.
+
+\bibitem{laplante}
+Audrey Laplante.
+\newblock Social capital and music discovery: An examination of the ties
+  through which late adolescents discover new music.
+\newblock In {\em International Society for Music Information Retrieval
+  Conference (ISMIR)}, pages 341--346. University of Miami, 2011.
+
+\bibitem{Maddi}
+S.~R. Maddi.
+\newblock The pursuit of consistency and variety.
+\newblock In R.~P.~Abelson et~al, editor, {\em Theories of cognitive
+  consistency}. Rand McNally, Chicago, 1968.
+
+\bibitem{Munson:2010}
+Sean~A. Munson and Paul Resnick.
+\newblock Presenting diverse political opinions: How and how much.
+\newblock In {\em Proceedings of the SIGCHI Conference on Human Factors in
+  Computing Systems}, CHI '10, pages 1457--1466, New York, NY, USA, 2010. ACM.
+
+\bibitem{Nakatsuji:2010}
+Makoto Nakatsuji, Yasuhiro Fujiwara, Akimichi Tanaka, Toshio Uchiyama,
+  Ko~Fujimura, and Toru Ishida.
+\newblock Classical music for rock fans?: novel recommendations for expanding
+  user interests.
+\newblock In {\em Proceedings of the 19th ACM international conference on
+  Information and knowledge management}, CIKM '10, pages 949--958, New York,
+  NY, USA, 2010. ACM.
+
+\bibitem{pazzani}
+MichaelJ. Pazzani and Daniel Billsus.
+\newblock Content-based recommendation systems.
+\newblock In Peter Brusilovsky, Alfred Kobsa, and Wolfgang Nejdl, editors, {\em
+  The Adaptive Web}, volume 4321 of {\em Lecture Notes in Computer Science},
+  pages 325--341. Springer Berlin Heidelberg, 2007.
+
+\bibitem{Resnick:1997}
+Paul Resnick and Hal~R. Varian.
+\newblock Recommender systems.
+\newblock {\em Commun. ACM}, 40(3):56--58, March 1997.
+
+\bibitem{Thorndike}
+Robert Thorndike.
+\newblock Who belongs in the family?
+\newblock {\em Psychometrika}, 18:267--276, 1953.
+
+\bibitem{vargas:2011}
+Sa\'{u}l Vargas and Pablo Castells.
+\newblock Rank and relevance in novelty and diversity metrics for recommender
+  systems.
+\newblock In {\em Proceedings of the fifth ACM conference on Recommender
+  systems}, RecSys '11, pages 109--116, New York, NY, USA, 2011. ACM.
+
+\bibitem{Ward63}
+Joe~H. Ward.
+\newblock Hierarchical grouping to optimize an objective function.
+\newblock {\em Journal of the American Statistical Association},
+  58(301):236--244, 1963.
+
+\bibitem{ward:2014}
+Morgan Ward, Joseph Goodman, and Julie Irwin.
+\newblock The same old song: The power of familiarity in music choice.
+\newblock {\em Marketing Letters}, 25(1):1--11, 2014.
+
+\bibitem{Zhang:2012}
+Yuan~Cao Zhang, Diarmuid~\'{O} S{\'e}aghdha, Daniele Quercia, and Tamas Jambor.
+\newblock Auralist: introducing serendipity into music recommendation.
+\newblock In {\em Proceedings of the fifth ACM international conference on Web
+  search and data mining}, WSDM '12, pages 13--22, New York, NY, USA, 2012.
+  ACM.
+
+\bibitem{Ziegler:2005}
+Cai-Nicolas Ziegler, Sean~M. McNee, Joseph~A. Konstan, and Georg Lausen.
+\newblock Improving recommendation lists through topic diversification.
+\newblock In {\em Proceedings of the 14th international conference on World
+  Wide Web}, WWW '05, pages 22--32, New York, NY, USA, 2005. ACM.
+
+\end{thebibliography}

@@ -1,0 +1,135 @@
+\chapter{Conceitos e Modelos} \label{cap:aspectos_novidade}
+
+Este capítulo define quais conceitos e modelos foram utilizados na pesquisa. Para a construção dos experimentos, primeiro foi definido o conceito de novidade que iríamos trabalhar junto com o das suas características. Foi importante esta definição inicial pois os termos utilizados na pesquisa (novidade, familiaridade, popularidade, relevância) são termos gerais, que podem possuir mais de um significado, não tendo um consenso da literatura. 
+
+\section{Tipos dos itens estudados}
+	
+	Primeiro foi definido o que seria uma novidade, ou um item com novidade, e consequentemente um item conhecido.
+
+	\subsection {Item com novidade / Novidade}
+	
+	Novidade é o conceito central deste trabalho. Um item com novidade é um item que não foi acessado pela pessoa anteriormente. No âmbito musical, itens podem ser músicas, artistas e álbuns, e as pessoas que escutam esses itens são ouvintes. Mais especificamente, tratamos as novidades como artistas que não foram escutados anteriormente pelo ouvinte. Por exemplo, se em algum momento o ouvinte João escutou o artista Eminem pela primeira vez, Eminem deixou de ser uma novidade para ser um artista conhecido. Antes desse momento ele era considerado uma novidade para João.
+	
+	\subsection {Item conhecido}
+	
+	Um item conhecido é o oposto da novidade. Assim, é um item que já foi acessado anteriormente pela pessoa. No nosso trabalho, um artista conhecido é um artista que já foi escutado anteriormente pelo ouvinte. No Capítulo \ref{cap:comparacao} é mostrado o resultado da comparação entre as preferências dos ouvintes pelas características dos artistas com novidade e as preferências do mesmo pelas características dos artistas conhecidos.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Características de um item}
+	Para calcular a familiaridade de um artista para um ouvinte, foi necessário definir características do artista e do perfil musical do ouvinte, já que a familiaridade está relacionada com a similaridade do artista para o perfil do ouvinte. Neste contexto surge os conceitos de descritores e descrição.
+
+	\subsection{Descritores}
+	 Um descritor é um um símbolo que descreve / caracteriza um item. No âmbito musical, descritores são termos que podem caracterizar músicas, artistas, álbuns, perfis musicais de ouvintes, etc. Estes descritores podem representar gênero musical (pop, forró), localização (latina, brasileira, britânica), humor (animada, depressiva), entre outros.
+
+	\subsection{Descrições} \label{subsec:descricoes}
+	Um item pode ser caracterizado por mais de um descritor, e estes descritores caracterizam-no em menor ou maior grau. Tomemos como exemplo o artista Michael Jackson. Ele pode ser descrito pelos termos Pop, Dance e Soul. Destes termos, Pop o carateriza em um grau maior que Soul. Desta maneira, para uma caraterização completa dos itens, é necessário representar este conjunto de descritores. Para isso usamos o termo descrição.
+	Sejam $I$ o conjunto de itens, $D$ o conjunto de descritores e $g:I\times D\rightarrow \mathbb{R}$ a função que denote o grau que o descritor $d\in D$ caracteriza o item $i\in I$. Assim, a descrição $\theta_{i}$ de um item $i\in I$ é (Equação \ref{eq:descricao}):
+
+	\begin{equation}
+	\theta_{i} = \{ (d_1 , g(i,d_1) ), \ldots, (d_{|\theta|} , g(i,d_{|\theta|}) ) \} \label{eq:descricao}
+	\end{equation}
+
+	Ou seja, é um conjunto de descritores junto com o grau que cada descritor caracteriza o item. Por exemplo, \{(pop, 0,7), (dance, 0,5), (soul, 0,5)\} pode ser considerada uma descrição do artista Michael Jackson.
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Representações do histórico musical}
+
+\subsection{Artista}\label{subsec:modelo_artista}
+Na nossa pesquisa, os itens com novidade e os itens conhecidos são artistas. Para calcular as métricas que foram utilizadas na pesquisa, definimos um modelo para as características dos artistas. Este modelo do artista possui uma descrição e uma popularidade, que representa o quanto de pessoas no mundo conhecem este artista. Formalmente, sejam $A$ o conjunto de artistas, $\Theta$ o conjunto de descrições, $\theta_{a} \in \Theta$ a descrição do arista $a \in A$ e $p$ a popularidade do artista $a$, o modelo $w$ que caracteriza $a$ é  (Equação \ref{eq:modelo_artista}):
+
+	\begin{equation}
+		w := (\theta_{a},p) \label{eq:modelo_artista}
+	\end{equation}
+
+\subsection{Perfil} \label{sec:perfil}
+
+Um perfil de um usuário é um modelo que representa características de um determinado usuário sobre determinado tema. Assim, o perfil musical de um ouvinte é uma representação das músicas ou artistas que ele tipicamente escuta. A necessidade de uma representação do perfil musical do ouvinte surgiu primeiramente para calcular a familiaridade de um artista para o ouvinte. Além disso, utilizamos o perfil para extrair a ecleticidade do ouvinte e para gerar uma representação visual do que foi escutado pelo ouvinte
+
+Uma forma de representação intuitiva do perfil de uma pessoa seria o conjunto de gêneros musicais de artistas que essa pessoa escuta/escutou. Tipicamente, ao perguntar a ouvintes qual seu perfil musical, respostas como estas surgem: "Geralmente escuto artistas de Rock", "Escuto mais bandas de Forró e Pagode". É como se eles abstraíssem os artistas, os agrupando baseado em seus gêneros musicais. Uma representação formal desse conceito se adequaria à nossa necessidade, pois gêneros musicais, como Forró, Pagode e Rock, são considerados  descritores musicais.
+
+Assim, o perfil musical de um pessoa é formado por um conjunto de pares (descrição, relevância) que descreve, para um dado período, as características dos artistas escutados por essa pessoa e a frequência com que artistas com diferentes características foram escutados. Por exemplo, uma pessoa pode ter um perfil composto por \{(rock, britânico; 0,2 ), (rock, brasil; 0,15), (rock, eletrônico; 0,1), ...\}, ou seja, ter escutados artistas de rock britânico representando 20\% do seu histórico musical, artistas de rock brasileiro representando cerca de 15\% do seu histórico e artistas de rock misturado com eletrônico, representando 10\% do seu histórico. Formalmente, sejam $P_{\theta}$ o conjunto de descrições do perfil $P$, $\theta_{i} \in P_{\theta}$ uma descrição com relevância $r_{i}$. O perfil $P$ de um ouvinte é formado por:
+
+\begin{equation}
+	\text{P} = \{(\theta_{i} , r_{i}) \}\label{eq:descricao}
+\end{equation}
+
+\subsubsection{Construção do Perfil}
+Uma possibilidade para a construção do perfil é agrupar os artistas de acordo com a semelhança em suas descrições e então extrair uma descrição que represente cada grupo de artista. Para realizar esse agrupamento, foi utilizado um algoritmo de agrupamento hierárquico aglomerativo \cite{hastie}. Este tipo de algoritmo inicializa cada elemento (em nosso caso cada descrição de cada artista) em um grupo, e a cada passo, ele une os dois grupos mais próximos (similares). Desta maneira, foi necessário definir uma medida de distância, ou dissimilaridade, entre os grupos. 
+
+Na maior parte dos métodos utilizados no agrupamento hierárquico aglomerativo, a medida de distância entre grupos pode ser gerada a partir de uma métrica de distância entre os pares de elementos e um critério de união que especifica quais grupos unir em cada passo, em função desta distância.  Então, foi definido como métrica de distância entre pares de descrições dos artistas o complemento da similaridade do cosseno entre os vetores de descrições dos artistas e como critério de  união (\textit{linkage criterion}) o agrupamento de união pela média (o \textit{average linkage clustering}).
+
+A similaridade do cosseno entre as descrições de dois artistas é definida pela Equação ~\ref{eq:cosine}. Como o algoritmo aglomerativo hierárquico requer uma medida de distância, e não de similaridade, foi calculado o complemento da similaridade do cosseno (Equação \ref{eq:distancia}).
+
+\begin{equation}
+\text{cos}(\vec{\theta},\vec{\theta}'):=
+      \frac{\langle \vec{\theta},\vec{\theta}' \rangle}{\|\vec{\theta}\| \|\vec{\theta}'\|}  \label{eq:cosine}
+\end{equation}
+
+\begin{equation}
+\text{dis}(\vec{\theta},\vec{\theta}'):= 1 - \text{cos}(\vec{\theta},\vec{\theta}') \label{eq:distancia}
+\end{equation}
+
+
+ O \textit{average linkage clustering} \cite{hastie} é um método de união de grupos baseado na média das distâncias entre cada par de elementos de cada grupo. A distância entre dois grupos é definida pela Equação ~\ref{eq:averageLinkage}. Sejam $X$ e $Y$ grupos, onde $x\in X$ a descrição de um artista do grupo $X$ e $y \in Y$ a descrição de um artista do grupo $Y$. A distância $d(X,Y)$ entre os grupos $X$ e $Y$ é definida pela média das distâncias de todos os pares $x\in X$ e $y \in Y$ (Equação \ref{eq:averageLinkage}).
+ 
+  \begin{equation}
+\text{d}(X,Y):= \frac{1}  {\left| X \right| \left| Y \right|}\sum\limits_{x\in X}\sum\limits_{y\in Y} dis(x,y) \label{eq:averageLinkage}
+\end{equation}
+
+Após a definição da distância entre grupos, o algoritmo de agrupamento foi aplicado para os artistas de cada ouvinte separadamente. Como é um método aglomerativo hierárquico, o algoritmo inicia a descrição de cada artista dentro de um grupo separado. Em cada etapa os grupos mais próximos vão sendo aglutinados, até chegar em 1 grupo com todos os artistas. É necessária uma condição de parada para selecionar o número de grupos de um ouvinte adequado. Esta condição de parada vai ser comentada no Capítulo \ref{cap:dados}.
+
+Assim, com o os grupos de artistas definidos, pode-se extrair o conjunto de pares (descrição, relevância) que representa o perfil. Para cada grupo de artistas, o centróide das descrições dos artistas representa a descrição daquele grupo, e a proporção de todas as execuções de músicas dos artistas deste grupo escutadas pelo ouvinte é a relevância deste grupo no perfil do ouvinte. Quanto mais vezes os artistas do grupo $i$ foram escutados, mais influentes as descrições deste grupo são para o ouvinte.
+
+% 	Formalmente, sejam $P := \{C_1, ..., C_n\}$ o perfil do ouvinte, formado pelos grupos de artistas $C_i$ e $I := \{1, ..., n\}$ o conjunto índice de $P$. Sejam $\vec{c_i}$ o centróide do grupo $C_i$ e $p_i$ a influência do grupo  $C_i$ no perfil do ouvinte, definida como a proporção de todas as execuções de músicas pelo ouvinte que são as músicas cujos artistas estão em $C_i$. 
+
+% , o algoritmo foi interrompido no momento em que a distância mínima entre 2 grupos fosse igual a 0,30. Este valor de 0,30 foi obtido empiricamente. Para tanto, foram selecionados alguns ouvintes com perfis musicais diferentes e foram analisados os grupos criados ao mudar este valor limite. O valor de 0,30 foi melhor valor encontrado na média, onde -  no julgamento do autor desta dissertação e de colegas do mesmo grupo de pesquisa - artistas similares estavam no mesmo grupo e artistas bastante diferentes estavam em grupos diferentes.
+
+
+\subsection{Ecleticidade}  \label{subsec:eclet}
+
+A ecleticidade representa o quão eclético musicalmente um ouvinte é - o quão diferente são os grupos de artistas que ele escuta. Ou seja, um ouvinte com alta ecleticidade é um que escuta muitos estilos diferentes de música.  Esta métrica foi utilizada para conhecer melhor os hábitos dos ouvintes e foi utilizada na geração dos grupos de ouvintes baseados nas preferências pelos aspectos das novidades comparadas com seus hábitos musicais, descritos no Capítulo ~\ref{sec:grupos}. 
+	
+Inicialmente consideramos utilizar o número de grupos do perfil do ouvinte como critério de ecleticidade. Quanto mais grupos o ouvinte possuísse no perfil, mais eclético ele seria. Porém, dois ouvintes podem possuir o mesmo número de grupos mas um ouvinte pode possuir no perfil grupos mais similares (como um grupo de hip hop e outro de hip hop polonês - Figura \ref{fig:cluster_pouca}) e outro possuir menos similares (como um grupo de pop e outro de industrial metal - Figura \ref{fig:cluster_muita}). 
+
+Uma alternativa a essa abordagem seria contabilizar o quanto de diferença ou diversidade cada grupo adiciona ao perfil. Quanto mais diversidade houver nos grupos do perfil, mais eclético o ouvinte é. Para isso, recorremos novamente a um algoritmo de agrupamento hierárquico, porém agora utilizando as descrições do perfil como elementos a serem agrupados. A cada passo calculamos e armazenamos a distância entre os dois grupos que foram unidos. Por fim, definimos a ecleticidade como a soma de todas estas distâncias. Formalmente, sejam $P_{\theta}$ o conjunto de descrições do perfil do ouvinte; $X^{(s)} := \{X^{(s)}_1, ...,X^{(s)}_{n}\}$ o conjunto de grupos no passo $s$ (\textit{step} é passo em inglês) do algoritmo hierárquico, onde $X^{(1)} =  P_{\theta}$ e $X^{(j)}$, onde $j > 1$, são grupos do algoritmo hierárquico criados a partir do conjunto inicial $X^{(1)}$. Seja $d(X^{(s)}_k,X^{(s)}_l)$ a distância entre os grupos $X^{(s)}_k$ e $X^{(s)}_l$. Então, a ecleticidade do ouvinte com perfil $P$ é calculada na Equação ~\ref{eq:eclet}.
+
+\begin{equation}
+\text{e}(P)= 
+      \sum_{s=1}^{|P| - 1} min_{k,l \in (1..|P-s+1|)} d(X^{(s)}_k,X^{(s)}_l)   \label{eq:eclet}
+\end{equation}
+
+A distância $d(X^{(s)}_k,X^{(s)}_l)$ entre os grupos do algoritmo hierárquico foi calculada utilizando o  \textit{average linkage method} (Equação ~\ref{eq:averageLinkage}). Como o \textit{average linkage method} depende da distância entre cada par de elemento (onde cada elemento é descrição), foi definido como distância entre dois grupos o complemento da similaridade do cosseno (Equação \ref{eq:distancia}) entre as descrições.
+
+\section {Aspectos}
+
+Para caracterizar as novidades multidimensionalmente, utilizamos dois aspectos: a familiaridade e a popularidade. Esta seção define estes dois aspectos.
+
+\subsection{Familiaridade}	 \label{sec:familiaridade}
+	Muitos trabalhos \cite{Nakatsuji:2010,Ziegler:2005,Zhang:2012} caracterizam uma novidade baseada na similaridade do item acessado pela pessoa em relação a outros itens acessados anteriormente pela mesma. Trazendo para o âmbito musical, rotulamos este tipo de característica como familiaridade. A familiaridade de um artista para um ouvinte reflete o quanto este ouvinte foi exposto a outros artistas que têm descrições semelhantes aos do artista escutado.
+	
+	Além da similaridade das descrições, nós levamos em conta o quanto estes artistas similares ao artista em questão foram escutados pelo ouvinte. Isso porque a familiaridade de um artista para um ouvinte é influenciado também pelo quanto este ouvinte escutou artistas similares ao artista em questão \cite{hargreaves:2002}. Por exemplo, se Maria tem hábito de escutar muitos artistas pop e poucos artistas de rock, Britney Spears (cantora pop) é mais familiar a ela que Evanescence (banda de rock). Assim, a familiaridade está relacionada com a similaridade entre a descrição do artista e as descrições do perfil do ouvinte junto com a influência desses artistas no perfil do ouvinte. 
+
+	Formalmente, sejam $P$ o perfil do usuário, formado pelos pares de (descrição $\theta_{i}$, relevância $r_{i}$) e $\theta_{a}$ a descrição do artista $a$. Assim, a familiaridade de $a$ para o perfil $P$ do ouvinte é: (Equação \ref{eq:simlaridade}).
+
+	\begin{equation}
+	\text{fam}(a,P)= 
+	      max_{\theta_{i}, r_{i} \in P } cos(\vec{\theta_{a}},\vec{\theta_{i}}) \times r_{i}   \label{eq:simlaridade}
+	\end{equation}
+
+	\subsection {Popularidade}
+	
+	Outra característica bem relacionada com itens com novidade na literatura é a popularidade \cite{Celma:2008,Ziegler:2005,vargas:2011,Bellogin:2010,Zhang:2012}. Neste trabalho definimos a popularidade como sendo o quanto de pessoas já escutaram o artista em questão. Por exemplo, Michael Jackson, artista que muitas pessoas de todo o mundo já escutaram, é mais popular que Rapadura, um rapper brasileiro que foi escutado apenas por um nicho específico de pessoas. 
+	
+	\section {Preferência / Relevância}
+	
+	Com os aspectos familiaridade e popularidade, estudamos quais destas características das novidades são relevantes para o ouvinte. Em outras palavras, qual a preferência dos ouvintes por esses aspectos. Utilizamos dois conceitos de preferência:
+	\begin{enumerate}
+	
+		\item Atenção total
+		
+		É o quanto de atenção que um ouvinte deu para o artista em um período especificado. Para isso utilizamos a quantidade de músicas do artista que o ouvinte escutou no período. Quanto mais músicas do artista, mais atenção o ouvinte devotou ao artista.
+		
+		\item Período de atenção
+		
+		É o período em que o ouvinte devotou de atenção ao artista. No nosso trabalho, a unidade de tempo é uma semana. Assim, quanto mais semanas o ouvinte escutou alguma música do artista em questão, maior o período de atenção do ouvinte.
+	\end{enumerate}	
+

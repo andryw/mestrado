@@ -1,0 +1,142 @@
+	\chapter{Modelos} \label{cap:modelos}
+	
+	Após a coleta e filtragem dos dados, utilizamos 3 conceitos para representar as entidades envolvidas no estudo: modelo de perfil do ouvinte, características das novidades e métricas de relevância. Primeiro, foi construindo o modelo do perfil do ouvinte, com o intuito de: gerar uma representação visual do que foi escutado pelo ouvinte; viabilizar o cálculo da familiaridade de um artista para um ouvinte; e gerar uma métrica de ecleticidade. Segundo, foram modeladas as características da novidade a serem utilizadas nos experimentos - familiaridade e popularidade. Por fim, foram modeladas duas métricas que refletem a preferência do ouvinte para um artista, ou a relevância deste artista para o ouvinte, durante um período de tempo - a atenção total e o período de atenção.
+ 
+	\section{Perfil musical do ouvinte}\label{sec:perfil}
+ Um perfil de um usuário é um modelo que representa características de um determinado usuário sobre determinado tema. Assim, o perfil musical de um ouvinte é uma representação das músicas ou artistas que ele tipicamente escuta. 
+ 
+ A necessidade de uma representação do perfil musical do ouvinte surgiu primeiramente para calcular a familiaridade de um artista para o ouvinte. Como definida no Capítulo \ref{cap:aspectos_novidade}, a familiaridade de um artista para um ouvinte está relacionada com a semelhança dos descritores do artista com os descritores dos artistas escutados previamente pelo ouvinte, considerando a influência individual destes descritores no histórico musical do ouvinte. Para realizar o cálculo, é necessário um modelo do perfil do ouvinte que sumarize os descritores dos artistas por ele escutados no decorrer do tempo, para comparar com os descritores da novidade escutada.
+ 
+Uma forma de representação intuitiva do perfil de uma pessoa seria o conjunto de gêneros musicais de artistas que essa pessoa escuta/escutou. Tipicamente, ao perguntar a ouvintes qual seu perfil musical, respostas como estas surgem: "Geralmente escuto artistas de Rock", "Escuto mais bandas de Forró e Pagode". É como se eles abstraíssem os artistas, os agrupando baseado em seus gêneros musicais. Uma representação formal desse conceito se adequaria à nossa necessidade, pois gêneros musicais, como Forró, Pagode e Rock, são considerados  descritores musicais.
+
+Assim, o nosso modelo de perfil de ouvinte é formado pelo conjunto de grupos de artistas mais representativos do histórico do ouvinte, onde cada grupo é formado por artistas semelhantes de acordo com os seus descritores. Com isso, um sujeito pode ter um perfil formado por um grupo de artistas de Rock, um grupo de artistas de Samba e um grupo de artistas de Forró. 
+
+Os artistas do histórico musical utilizados para a construção do perfil foram os que não são novidades e que possuíssem número de execução no histórico do usuário maior que a média do número de execuções total dos artistas do histórico do usuário. Desta maneira utilizamos apenas os artistas mais representativos do perfil do ouvinte.
+
+Para a construção deste conjunto de grupos, foi utilizado um algoritmo de agrupamento hierárquico aglomerativo \cite{hastie}. Este tipo de algoritmo inicializa cada elemento (em nosso caso cada artista) em um grupo, e a cada passo, ele une os dois grupos mais próximos (similares). Desta maneira, é necessário definir uma medida de distância, ou dissimilaridade, entre os grupos. 
+
+Na maior parte dos métodos utilizados no agrupamento hierárquico aglomerativo, a medida de distância entre grupos pode ser gerada a partir de uma métrica de distância entre os pares de elementos e um critério de união que especifica quais grupos unir em cada passo, em função desta distância.  Então, foi definido como métrica de distância entre pares de artistas o complemento da similaridade do cosseno entre os vetores de tags dos artistas e como critério de  união (\textit{linkage criterion}) o agrupamento de união pela média (o \textit{average linkage clustering}).
+
+Para calcular a similaridade do cosseno, os artistas foram representados por vetores, onde o vetor é formado pelas tags atribuídas a cada artista. Já o valor de cada tag é o valor normalizado do número de vezes que a tag foi atribuída ao artista. Tanto a filtragem quanto valor de cada tag foram descritos na Seção ~\ref{sec:Artista}. Assim, sejam $A$ o conjunto de artistas, $T$ o conjunto de tags e $f:A\times T\rightarrow \mathbb{R}$ a função que denote a frequência que uma tag $t\in T$ foi atribuída a um artista $a\in A$, então o vetor que representa um artista $a\in A$ é:
+
+\begin{equation}
+	\vec{a}:=( f(a,t_1),f(a,t_2),\ldots,f(a,t_{|T|}) ) \label{eq:vetor}
+\end{equation}
+
+A similaridade do cosseno entre dois artistas é definida pela Equação ~\ref{eq:cosine}. Como o algoritmo aglomerativo hierárquico requer uma medida de distância, e não de similaridade, foi calculado o complemento da similaridade do cosseno (Equação \ref{eq:distancia}).
+
+\begin{equation}
+\text{cos}(\vec{a},\vec{a}'):=
+      \frac{\langle \vec{a},\vec{a}' \rangle}{\|\vec{a}\| \|\vec{a}'\|}  \label{eq:cosine}
+\end{equation}
+
+\begin{equation}
+\text{dis}(\vec{a},\vec{a}'):= 1 - \text{cos}(\vec{a},\vec{a}') \label{eq:distancia}
+\end{equation}
+
+
+ O \textit{average linkage clustering} \cite{hastie} é um método de união de grupos baseado na média das distâncias entre cada par de elementos de cada grupo. A distância entre dois grupos é definida pela Equação ~\ref{eq:averageLinkage}. Sejam $X$ e $Y$ grupos, onde $x\in X$ um artista do grupo $X$ e $y \in Y$ um artista do grupo $Y$. A distância $d(X,Y)$ entre os grupos $X$ e $Y$ é definida pela média das distâncias de todos os pares $x\in X$ e $y \in Y$ (Equação \ref{eq:averageLinkage}).
+ 
+  \begin{equation}
+\text{d}(X,Y):= \frac{1}  {\left| X \right| \left| Y \right|}\sum\limits_{x\in X}\sum\limits_{y\in Y} dis(x,y) \label{eq:averageLinkage}
+\end{equation}
+
+Após a definição da distância entre grupos, o algoritmo de agrupamento foi aplicado para os artistas de cada ouvinte separadamente. Como é um método aglomerativo hierárquico, o algoritmo inicia cada artista dentro de um grupo separado. Em cada etapa os grupos mais próximos vão sendo aglutinados, até chegar em 1 grupo com todos os artistas. Para selecionar o número de grupos de um ouvinte, o algoritmo foi interrompido no momento em que a distância mínima entre 2 grupos fosse igual a 0,30. Este valor de 0,30 foi obtido empiricamente. Para tanto, foram selecionados alguns ouvintes com perfis musicais diferentes e foram analisados os grupos criados ao mudar este valor limite. O valor de 0,30 foi melhor valor encontrado na média, onde -  no julgamento do autor desta dissertação e de colegas do mesmo grupo de pesquisa - artistas similares estavam no mesmo grupo e artistas bastante diferentes estavam em grupos diferentes.
+ 
+
+Os perfis obtidos tiveram média de 33,28 grupos (onde cada grupo possui pelo menos 2 artistas) e desvio padrão de 20,3. A Figura \ref{fig:ecdf_clusters} representa o gráfico de distribuição acumulada do número de grupos de artistas encontrados nos perfis dos sujeitos selecionados em nosso experimento. A Figura \ref{fig:perfis} representa dois exemplos de perfis.
+		\begin{figure}[htbp]	
+\begin{center}
+		\fbox{\includegraphics[scale=0.45]{ecdf_clusters.png}}
+	\end{center}
+	\caption{Distribuição acumulada do número de grupos}
+	\label{fig:ecdf_clusters}
+\end{figure}
+
+A criação do perfil, além de auxiliar na visualização do gosto musical do usuário, evidenciado nas Figuras \ref{fig:perfis}, e do cálculo da familiaridade (Seção ~\ref{sec:familiaridade}), faz parte do cálculo da ecleticidade.	
+
+\begin{figure}
+\subfigure[Perfil com alta ecleticidade.]{
+ \includegraphics[height = 5cm]{figs/cluster_espalhado.png} \label{fig:cluster_muita}}
+ \subfigure[Perfil com baixa ecleticidade]{
+ \includegraphics[height = 5cm]{figs/cluster_junto.png}  \label{fig:cluster_pouca}}
+  \caption{Exemplos de dois perfis de ouvintes. Cada círculo representa um grupo de artistas e a distância entre os círculos é proporcional a similaridade entre os grupos. O tamanho de cada círculo é proporcional a quantidade de músicas dos artistas de cada grupo escutadas pelo ouvinte.}
+  \label{fig:perfis}
+\end{figure} 
+
+
+	\subsection{Ecleticidade} \label{subsec:eclet}
+	
+	A ecleticidade representa o quão eclético musicalmente um ouvinte é - o quão diferente são os grupos de artistas que ele escuta. Ou seja, um ouvinte com alta ecleticidade é um que escuta muitos estilos diferentes de música.  Esta métrica foi utilizada para conhecer melhor os hábitos dos ouvintes e foi utilizada na geração dos grupos de ouvintes baseados nas preferências pelos aspectos das novidades comparadas com seus hábitos musicais, descritos no Capítulo ~\ref{sec:grupos}. 
+	
+	
+Inicialmente consideramos utilizar o número de grupos do perfil do ouvinte como critério de ecleticidade. Quanto mais grupos o ouvinte possuísse no perfil, mais eclético ele seria. Porém, dois ouvintes podem possuir o mesmo número de grupos mas um ouvinte pode possuir no perfil grupos mais similares (como um grupo de hip hop e outro de hip hop polonês - Figura \ref{fig:cluster_pouca}) e outro possuir menos similares (como um grupo de pop e outro de industrial metal - Figura \ref{fig:cluster_muita}). 
+
+Uma alternativa a essa abordagem seria contabilizar o quanto de diferença ou diversidade cada grupo adiciona ao perfil. Quanto mais diversidade houver nos grupos do perfil, mais eclético o ouvinte é. Para isso, recorremos novamente a um algoritmo de agrupamento hierárquico, porém agora utilizando os grupos do perfil. A cada passo calculamos e armazenamos a distância entre os dois grupos que foram unidos. Por fim, definimos a ecleticidade como a soma de todas estas distâncias. Formalmente, sejam $P := \{C_1, ..., C_n\}$ o perfil do ouvinte, formado por grupos do perfil $C_i$;  $|P|$ o total de grupos do perfil do ouvinte; $X^{(s)} := \{X^{(s)}_1, ...,X^{(s)}_{n}\}$ o conjunto de grupos no passo $s$ (\textit{step} é passo em inglês) do algoritmo hierárquico, onde $X^{(1)} =  P$ e $X^{(j)}$, onde $j > 1$, são grupos do algoritmo hierárquico criados a partir do conjunto inicial $X^{(1)}$. Seja $d(X^{(s)}_k,X^{(s)}_l)$ a distância entre os grupos $X^{(s)}_k$ e $X^{(s)}_l$. Então, a ecleticidade do ouvinte com perfil $P$ é calculada na Equação ~\ref{eq:eclet}.
+
+\begin{equation}
+\text{e}(P)= 
+      \sum_{s=1}^{|P| - 1} min_{k,l \in (1..|P-s+1|)} d(X^{(s)}_k,X^{(s)}_l)   \label{eq:eclet}
+\end{equation}
+
+A distância $d(X^{(s)}_k,X^{(s)}_l)$ entre os grupos do algoritmo hierárquico foi calculada utilizando o  \textit{average linkage method} (Equação ~\ref{eq:averageLinkage}). Como o \textit{average linkage method} depende da distância entre cada par de elemento (onde cada elemento é um grupo $C_i \in P$), foi definido como distância entre dois grupos $C_i \in P$ e $C_j \in P$ o complemento da similaridade do cosseno (Equação \ref{eq:distancia}) entre os vetores $c_i$ e $c_j$ que representam os centróides de $C_i$ e $C_j$.
+
+A Figura \ref{fig:perfis} compara dois perfis de ouvintes com ecleticidades bastante diferentes. A Figura \ref{fig:cluster_muita} é o perfil de um ouvinte mais eclético que o ouvinte da Figura \ref{fig:cluster_pouca}. Nota-se a diferença de ecleticidade pela distância entre os círculos. Enquanto na Figura \ref{fig:cluster_muita} os círculos estão mais espassados, na Figura \ref{fig:cluster_pouca} os círculos estão mais coesos.
+
+	\section{Características das novidades}  
+	
+Para caracterizar as novidades multidimensionalmente, utilizamos dois aspectos: a familiaridade e a popularidade. Esta seção descreve o cálculo de cada aspecto.
+
+	\subsection{Familiaridade} \label{sec:familiaridade}
+Como definido no Capítulo \ref{cap:aspectos_novidade}, a familiaridade de um artista $a$ para um ouvinte $o$ reflete o quanto este ouvinte foi exposto a outros artistas que têm descritores semelhantes aos do artista $a$. Em nosso modelo a familiaridade está relacionada com a similaridade entre os descritores do artista e os descritores dos artistas do perfil do ouvinte, considerando a influência individual desses artistas.
+
+Formalmente, sejam $P := \{C_1, ..., C_n\}$ o perfil do ouvinte, formado pelos grupos de artistas $C_i$ e $I := \{1, ..., n\}$ o conjunto índice de $P$. Sejam $\vec{c_i}$ o centróide do grupo $C_i$ e $p_i$ a influência do grupo  $C_i$ no perfil do ouvinte, definida como a proporção de todas as execuções de músicas pelo ouvinte que são as músicas cujos artistas estão em $C_i$. Assim, a familiaridade entre um artista $a$ e o perfil do ouvinte $P$ é o valor máximo da similaridade entre o artista $a$ e algum grupo $C_i$ multiplicado pela influência  $p_i$ de $C_i$ (Equação \ref{eq:simlaridade}).
+
+\begin{equation}
+\text{fam}(a,P)= 
+      max_{i \in |I| } cos(\vec{a},\vec{c_i}) \times p_i   \label{eq:simlaridade}
+\end{equation}
+
+A influência $p_i$ de $C_i$ é representado pela proporção de execuções das músicas dos artistas presentes no grupo. Quanto mais vezes os artistas do grupo $i$ foram escutados, mais influentes os descritores deste grupo são para o ouvinte.
+
+\begin{figure}
+\subfigure[Artistas com novidade]{
+ \includegraphics[width=.45\columnwidth]{figs/ecdf_n_fam.png} \label{fig:ecdf_fam_new}}
+ \subfigure[Artistas conhecidos]{
+ \includegraphics[width=.45\columnwidth]{figs/ecdf_old_fam.png}  \label{fig:ecdf_fam_old}}
+  \caption{Frequência acumulada da familiaridade dos artistas para os ouvintes.}
+  \label{fig:ecdf_fam}
+\end{figure} 
+
+A Figura \ref{fig:ecdf_fam} representa gráficos da distribuição acumulada da familiaridade dos artistas para os ouvintes. Podemos observar que os valores da familiaridade para os artistas com novidade (Figura \ref{fig:ecdf_fam_new}) são em geral menores que os valores para os artistas conhecidos (Figura \ref{fig:ecdf_fam_old}).
+
+	\subsection{Popularidade}
+O segundo aspecto da novidade estudado foi a popularidade. Para calcular a popularidade, utilizamos o logaritmo na base 10 do número de ouvintes do artista no Last.FM. O logaritmo foi utilizado pois a distribuição da popularidade dos artistas é enviesada (\ref{fig:listeners_lastfm}).
+
+	
+\begin{figure*}[htp]
+  \centering
+  \subfigure[Número de ouvintes dos artistas]{\includegraphics[scale=0.45]{figs/listeners.pdf}\label{fig:listeners}}\quad
+  \subfigure[Número de ouvintes dos artistas (log linear)]{\includegraphics[scale=0.45]{figs/listeners_log.pdf} \label{fig:listeners_log} }
+  \caption{Número de ouvintes dos artistas do Last.fm}
+  \label{fig:listeners_lastfm}
+\end{figure*}
+
+A Figura \ref{fig:ecdf_pop} representa gráficos da distribuição acumulada da popularidade dos artistas escutados pelos ouvintes. Podemos observar que os valores da popularidade dos artistas com novidade (Figura \ref{fig:ecdf_pop_new}) são em geral um pouco menores que os valores para os artistas conhecidos (Figura \ref{fig:ecdf_pop_old}).
+
+\begin{figure}
+\subfigure[Artistas com novidade]{
+ \includegraphics[width=.45\columnwidth]{figs/ecdf_n_pop.png} \label{fig:ecdf_pop_new}}
+ \subfigure[Artistas conhecidos]{
+ \includegraphics[width=.45\columnwidth]{figs/ecdf_old_pop.png}  \label{fig:ecdf_pop_old}}
+  \caption{Frequência acumulada da popularidade dos artistas escutados pelos ouvintes (já com valor transformado pelo log na base 10).}
+  \label{fig:ecdf_pop}
+\end{figure} 
+
+	\section{Preferências}
+	Para mensurar o quanto o ouvinte preferiu a novidade, foram utilizados duas métricas: a atenção total e o período de atenção.  Como novidades podem ser descobertas em todo o Período de Experimento, alguns destes artistas possuem uma janela de tempo no experimento menor (artistas escutadas no final do Período de Experimento). Para contornar esse problema, utilizamos duas soluções. Primeiro, utilizamos como denominador no cálculo das métricas o número de semanas da Janela de Tempo de exposição à novidade, que vai da primeira semana que foi escutada a novidade até o fim do Período de Experimento. Segundo, como mencionado na Seção ~\ref{sec:timeline}, apenas as novidades descobertas no Período de Observação foram consideradas na análise, mas todo o Período de Experimento foi utilizado para cálculo das métricas. Isso dá a cada novidade um mínimo de 6 meses de coleta de dados, que limita um possível viés para Janelas de Tempo pequenas.
+	
+		A atenção total representa a atenção que o ouvinte deu para o artista no Período de Experimento. A atenção total do ouvinte para o artista é representada pelo total de número de execuções de músicas do artista que ele escutou no Período de Experimento, dividido pelo número de semanas de sua Janela de Tempo. 
+		
+			Já o período de atenção o tempo que o ouvinte deu atenção ao artista. Assim, é o número de semanas que o ouvinte escutou o artista dividido pelo número de semanas de sua Janela de Tempo.
+	

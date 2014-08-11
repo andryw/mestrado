@@ -1,0 +1,227 @@
+\chapter{Dados} \label{cap:dados}
+
+Após a descrição das características das novidades (e dos artistas conhecidos) utilizadas no nosso estudo, esta seção descreve os dados que foram utilizados na pesquisa. Podemos dividir os dados em 2 partes: a primeira é representada pelo histórico musical dos sujeitos a serem analisados e a segunda pelos metadados dos artistas escutados pelos sujeitos. Os sujeitos dos experimentos representam os ouvintes. O histórico musical foi utilizado para identificar os artistas com novidade, os artistas conhecidos e as preferências dos ouvintes por ambas. Já os metadados foram utilizados para identificar os aspectos dos artistas - a familiaridade e a popularidade. Os dados foram coletados da plataforma do Last.FM.
+
+\section{Last.FM}
+
+O Last.FM é uma rede social musical que tem como principal característica o \textit{Scrobbling} - um serviço que permite registar o histórico de músicas escutadas pelos usuários. Além disso, o site fornece outros recursos como: serviço de rádio online, recomendador de novidades, tabelas com detalhes do histórico de execução do usuário, informações sobre artistas, turnês e possibilidade de criação de fóruns.
+
+
+O Last.FM fornece uma API \footnote{www.lastfm.com.br/api}(Application Programming Interface - conjunto de rotinas fornecidas por um software para que aplicativos acessem suas funcionalidades)  que permite o acesso a dados presentes no site. É possível coletar informações dos usuários, histórico de escuta dos usuários e informações sobre músicas / álbuns / artistas. Para nossos experimentos, nós coletamos 2 tipos de dados: o primeiro consiste num conjunto de usuários junto com seu histórico de escuta e o segundo em metadados dos artistas escutados. Os usuários do Last.FM foram os sujeitos da pequisa, e como dito anteriormente, representam os ouvintes. 
+
+	\section{Ouvinte}
+
+Com o intuito de estudar os artistas escutados pelos ouvintes, foram coletados dados acerca de uma amostra de usuários do Last.FM. A amostragem que constituiu esse conjunto de usuários foi feita a partir do procedimento de \textit{SnowBall Sampling} \cite{goodman1961}, iniciada pelo perfil do autor e sendo expandida pela coleta dos vizinhos musicais. Vizinho musical é um conceito utilizado no Last.FM, onde duas pessoas são vizinhas se possuírem gostos musicais parecidos. Foi coletado um conjunto de 100 mil usuários.
+
+Após a seleção dos usuários, o próximo passo foi coletar o histórico de escuta dos mesmos. Para identificar as novidades, o histórico do usuário foi dividido em períodos, que serão detalhados a seguir.
+ 
+	\subsection{Timeline}\label{sec:timeline}
+	
+	Os dados referentes ao histórico de cada sujeito foram coletados no período entre a primeira vez que o usuário escutou alguma música no Last.FM e Agosto de 2013. Este período foi dividido em duas partes, como pode-se ver na Figura ~\ref{fig:timeline}: \textit{Histórico Inicial} do sujeito e o \textit{Período de Experimento}. O Histórico Inicial contempla o período desde a primeira música que o sujeito escutou no Last.FM até Agosto de 2012, enquanto o Período de Experimento engloba o período entre Agosto de 2012 e Agosto de 2013 (um ano no total). Além dessa divisão, especificamos os seis primeiros meses do Período de Experimento como \textit{Período de Observação}.
+	
+	\begin{figure}[htbp]	
+\begin{center}
+		\fbox{\includegraphics[scale=0.75]{timeline.png}}
+	\end{center}
+	\caption{Linha do tempo utilizada no trabalho}
+	\label{fig:timeline}
+\end{figure}
+
+
+	Com esta divisão, foram identificadas quais as novidades escutadas pelo usuário. Os artistas escutados pelo usuário no Período de Observação que não foram escutados no Histórico Inicial são consideradas novidades. Já os artistas que foram previamente escutados no Histórico Inicial são considerados como artistas conhecidos. Não consideramos o Período de Experimento todo para evitar viés no cálculo das características das novidades. Uma novidade a que um sujeito foi exposto no começo do Período de Experimento tem maior probabilidade de ser escutada mais vezes que uma novidade à qual o sujeito foi exposto no final do Período de Experimento. Assim, identificamos como novidades os artistas escutados no Período de Observação e levamos em conta as métricas referente a elas durante todo o Período de Experimento (idem para os artistas conhecidos). Isso faz com que nossos dados tenham ao menos 6 meses de observação de cada novidade descoberta pelos sujeitos. 
+	
+
+	\subsection{Histórico do usuário}
+	
+	Do Histórico Total do ouvinte, coletamos todos os artistas que ele escutou desde a entrada do usuário no Last.FM até Agosto de 2013, junto com o total de execuções das músicas do artista. O método da API utilizado foi \textit{getTopArtists}, que possibilta coletar os \textit{n} artistas mais escutados pelo ouvinte, onde este \textit{n} pode ser até o número total de artistas escutados por ele. Para o Período de Experimento, fizemos dois tipos de coleta. A primeira, utilizando o \textit{getTopArtists} dos 12 meses, coletamos todos os artistas escutados, junto com o número de execuções das músicas de cada. O intuito dessa primeira coleta foi identificar os artistas do Histórico Inicial (o processo para isso será explicado mais na frente). A segunda parte consiste  nos artistas escutados em cada semana deste período, junto com o número de execuções em cada semana. O método da API do Last.FM utilizado foi o \textit{getWeeklyArtistChart}. Esta segunda coleta foi realizada com o intuito de obter,  além do número de execuções das músicas de cada artista, o número de semanas em que o usuário escutou cada artista.
+	
+	Com os dados do Histórico Total e do Período de Experimento conseguimos identificar o Histórico Inicial e as novidades. Os artistas do Histórico Inicial são os artistas que o ouvinte não escutou apenas no Período de Experimento. Ou seja, artistas com número de execuções no Histórico Total do ouvinte maior que no Período do Experimento. Já as novidades são os artistas com o mesmo número de execuções no Histórico Total e no Período de Experimento.
+		
+	Após a coleta e definição de cada período, foi realizado uma filtragem nos dados, descrita a seguir.
+	
+	\subsection{Filtros}\label{sec:Filtros}
+	
+	Como o Last.FM é uma rede social formada por diferentes tipos de usuários com diferentes hábitos musicais, julgamos necessária uma filtragem nos sujeitos, para selecionar os adequados aos propósitos dos experimentos. Abaixo estão as características que os sujeitos precisavam ter para serem selecionados, junto com a maneira de filtragem utilizada.
+	
+\begin{enumerate}
+	\item Possuir alta atividade de escuta no período de Histórico Inicial.
+	
+	\textit{Filtro: Exclusão de usuários que tenham escutado menos de 100 artistas no período de Histórico Inicial.}
+	\item Possuir alta atividade de escuta no Período de Experimento.
+	
+	\textit{Filtro: Exclusão de usuários que escutaram menos de 100 músicas por semana em pelo menos 1/4 das semanas do Período de Experimento.}
+	\item Serem expostos a um número de novidades que permita a investigação de relações entre as características das novidades e as suas preferências.
+	
+		\textit{Filtro: Exclusão de usuários que escutaram menos de 10 novidades.}
+				
+	\item Possuir número realista de execuções: foi detectado que alguns usuários possuíam um número muito grande de execuções musicais. Alguns, por exemplo, tiveram uma média de mais de uma música por minuto durante o período de observação, o que na realidade é impraticável. Uma explicação para esse fato seria a criação de robôs que trocassem a música assim que o sistema contabilizasse a execução da música (dependendo da configuração, o Last.FM pode considerar que a música foi escutada se ela foi tocada por um certo tempo, como 30 segundos).
+	
+		\textit{Filtro: Exclusão de usuários que tiveram uma média de execuções superior a 16 horas de execuções por dia, no Período de Experimento. Como as pessoas dormem em média 8 horas por dia, um ouvinte que passe o dia todo, enquanto acordado, escutando música, ele escutaria 16 horas de música por dia. Suponto que uma música tem em média 4 minutos, foram excluídos os usuários que tiveram média maior que 240 músicas por dia ($\frac{16hrs \times 60min}{4min / musica} = 240 musicas / dia$)}
+	\item Não utilizem majoritariamente a rádio do Last.FM: um dos objetivos da pesquisa é identificar as preferências dos usuários. Assim, é importante que a maior parte dos artistas escutados pelo usuário sejam escolhidos por ele e não por uma rádio.
+	
+	\textit{Filtro: Exclusão de usuários que não escutaram nenhum artista mais de 15x na semana, em mais de 1/4 das semanas do período de observação. 
+	15 músicas é o número médio de faixas que um álbum contém. Desta maneira, se um usuário escutou mais de 15 músicas de um artista em uma semana, estamos supondo que ou o usuário escolheu escutar um álbum do artista ou selecionou explicitamente 15 músicas do artista. Pela maneira como funciona a licença de direitos autorais para rádios, é bastante improvável que mais de 15 músicas de um artista sejam executadas pela rádio do Last.FM em uma semana. }
+\end{enumerate}
+
+
+
+O processo de filtragem resultou em uma amostra de 11.989 sujeitos. A Tabela \ref{tab:sumario} traz um sumário dos dados coletados.
+
+\begin{table}[htpb]
+\begin{center}
+\begin{tabular}{|c|c|c|}
+\hline
+  & Artistas com novidade & Artistas conhecidos\\
+\hline
+Total & 389.853 & 1.202.869 \\
+Média por ouvinte (desvio padrão) & 32,5 (26,75) & 100,33 (60,03) \\
+\hline
+\end{tabular}
+\end{center}
+\caption{Sumário dos dados coletados.}
+\label{tab:sumario}
+\end{table}
+
+ 
+	\section{Metadados dos Artistas}\label{sec:Artista}
+Com o intuito de construir o modelo de artista descrito na Subseção \ref{subsec:modelo_artista} e com isso calcular os aspectos das novidades, foram coletados dois tipos de metadados referentes aos artistas: as \textit{tags} que descrevem o artista (representando os descritores do artista) e a popularidade do artista no Last.FM. 
+
+\textit{Tags} são palavras (ou conjunto de palavras), como \textit{rock}, \textit{rap} e \textit{pop}, associadas a um recurso, como músicas, álbuns e artistas . No Last.FM os usuários podem marcar cada um dos recursos com alguma tag, caracterizando-as \textit{tags sociais}. Estas tags podem representar gêneros musicais (rock, samba), localização (brasil, nordeste, germany, west coast), humor (sad, chill, happy), opinião (love, favorite), referência pessoal (seen live, i own it), entre outros. Como as tags podem ser de vários tipos (não apenas gênero musical), elas podem ser consideradas \textit{descritores} das músicas.
+
+Para cada artista foram coletadas as tags atribuídas a ele pelos usuários, junto com a popularidade de cada tag. Esta popularidade está relacionada à quantidade de vezes que a tag foi atribuída para o artista específico, pelos usuários do Last.FM. A popularidade da tag fornecida pelo Last.FM é normalizada, onde a tag mais atribuída possui valor igual a 100 e as outras tags possuem valores proporcionais, de acordo com a frequência de atribuição de cada uma. Esta popularidade representa o grau de caracterização do descritor para o artista, como discutido na Subseção \ref{subsec:descricoes}. Formalmente, sejam $A$ o conjunto de artistas, $T$ o conjunto de tags e $h:A\times T\rightarrow \mathbb{R}$ uma função que denote a frequência absoluta que uma tag $t\in T$ foi atribuída a um artista $a\in A$. O valor normalizado da tag $t$, representado pela função $f:A\times T\rightarrow \mathbb{R}$ é representado pela Equação ~\ref{eq:freqrel}.
+
+\begin{equation}
+  f(t,a) = \frac{h(t,a)}{max_{x\in T} h(x,a)} \times 100 \label{eq:freqrel}
+\end{equation} 
+
+A Tabela ~\ref{tab:tabelaTags} apresenta as 5 tags com maior valor do artista Michael Jackson. Pode-se ver que a tag \textit{pop} foi a mais atribuída para Michael Jackson, possuindo valor 100. O método utilizado da API do Last.fm foi o \textit{artist.gettoptags}.
+
+
+
+
+\begin{table}[htpb]
+\begin{center}
+\begin{tabular}{|c|c|}
+\hline
+Tag & Valor  \\
+\hline
+pop & 100  \\
+80s & 49 \\
+dance & 40 \\
+soul & 35 \\
+funk & 32 \\
+\hline
+\end{tabular}
+\end{center}
+\caption{Tags do artista Michael Jackson, junto com o valor normalizado de cada uma.}
+\label{tab:tabelaTags}
+\end{table}
+
+
+Como as tags são associadas pelos usuários do Last.FM, há problemas relacionadas a esse processo \cite{lamere:2008}. Usuários podem atribuir tags que não condizem com a realidade, podem errar na escrita da tag, etc. Para utilizar tags que realmente descrevam o artista, foi realizado um processo de filtragem. De cada artista foram consideradas as tags populares até um máximo de 4 tags, tendo cada uma popularidade mínima de 30 (onde 100 é a tag mais atribuída àquele artista). Além disso, foram eliminadas manualmente as tags com conotação pessoal, como \textit{seen live} (vi ao vivo) ou \textit{favorite} (favorito).
+
+Sobre a popularidade do artista, foram coletados o número de usuários do Last.FM que escutaram cada artista. Como o valor da popularidade pode atingir ordens de magnitude bem diferentes, com o intuito de estudar a magnitude de cada valor, foram utilizados nos cálculos o logaritmo na base 10 do valor da popularidade. A Tabela \ref{tab:tabelaPopularidade} mostra exemplos de popularidade de alguns artistas.  O método utilizado da API foi o \textit{artist.getinfo}.
+
+\begin{table}[htpb]
+\begin{center}
+\begin{tabular}{|c|c|}
+\hline
+Artista & Número de ouvintes (popularidade)  \\
+\hline
+Michael Jackson & 2.998.428  \\
+The Beatles & 3.177.625 \\
+Red Hot Chili Peppers & 4.032.453 \\
+Eminem & 3.756.890 \\
+Chico Buarque & 314.584 \\
+\hline
+\end{tabular}
+\end{center}
+\caption{Número de ouvintes (popularidade) de alguns artistas no Last.FM}
+\label{tab:tabelaPopularidade}
+\end{table}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Aplicação dos dados nos modelos}
+Esta Seção remete os modelos discutidos no Capítulo \ref{cap:aspectos_novidade}, agora relacioando os modelos com os dados coletados.
+
+\subsection{Perfil}
+
+Como dito anteriormente, o perfil musical de um pessoa é formado por um conjunto de pares (descrição, relevância) que descrevem as características dos artistas escutados por essa pessoa e a frequência com que artistas com diferentes características foram escutados. As descrições utilizadas são as tags junto com a popularidade de cada tag para o item.
+
+Os artistas do histórico musical utilizados para a construção do perfil foram os que não são novidades e que possuíssem número de execução no histórico do usuário maior que a média do número de execuções total dos artistas do histórico do usuário. Desta maneira utilizamos apenas os artistas mais representativos do perfil do ouvinte. 
+
+Para a construção do perfil, foi utilziado um algoritmo de agrupamento hierárquico. Como é um método aglomerativo hierárquico, o algoritmo inicia cada artista dentro de um grupo separado. Em cada etapa os grupos mais próximos vão sendo aglutinados, até chegar em 1 grupo com todos os artistas. Para selecionar o número de grupos de um ouvinte, o algoritmo foi interrompido no momento em que a distância mínima entre 2 grupos fosse igual a 0,30. Este valor de 0,30 foi obtido empiricamente. Para tanto, foram selecionados alguns ouvintes com perfis musicais diferentes e foram analisados os grupos criados ao mudar este valor limite. O valor de 0,30 foi melhor valor encontrado na média, onde -  no julgamento do autor desta dissertação e de colegas do mesmo grupo de pesquisa - artistas similares estavam no mesmo grupo e artistas bastante diferentes estavam em grupos diferentes.
+
+Os perfis obtidos tiveram média de 33,28 pares de (descrição , relevância), onde cada par estava relacionado com pelo menos 2 artistas, e desvio padrão de 20,3. A Figura \ref{fig:ecdf_clusters} representa o gráfico de distribuição acumulada do número de pares encontrados nos perfis dos sujeitos selecionados em nosso experimento. A Figura \ref{fig:perfis} representa dois exemplos de perfis.
+		\begin{figure}[htbp]	
+\begin{center}
+		\fbox{\includegraphics[scale=0.45]{ecdf_clusters.png}}
+	\end{center}
+	\caption{Distribuição acumulada do número de grupos}
+	\label{fig:ecdf_clusters}
+\end{figure}
+
+
+\begin{figure}
+\subfigure[Perfil com alta ecleticidade.]{
+ \includegraphics[height = 5cm]{figs/cluster_espalhado.png} \label{fig:cluster_muita}}
+ \subfigure[Perfil com baixa ecleticidade]{
+ \includegraphics[height = 5cm]{figs/cluster_junto.png}  \label{fig:cluster_pouca}}
+  \caption{Exemplos de dois perfis de ouvintes. Cada círculo representa um grupo de artistas e a distância entre os círculos é proporcional a similaridade entre os grupos. O tamanho de cada círculo é proporcional a quantidade de músicas dos artistas de cada grupo escutadas pelo ouvinte.}
+  \label{fig:perfis}
+\end{figure} 
+
+\subsection{Ecleticidade} \label{subsec:eclet}
+
+
+A Figura \ref{fig:perfis} compara dois perfis de ouvintes com ecleticidades bastante diferentes. A Figura \ref{fig:cluster_muita} é o perfil de um ouvinte mais eclético que o ouvinte da Figura \ref{fig:cluster_pouca}. Nota-se a diferença de ecleticidade pela distância entre os círculos. Enquanto na Figura \ref{fig:cluster_muita} os círculos estão mais espassados, na Figura \ref{fig:cluster_pouca} os círculos estão mais coesos.
+
+
+
+\subsection{Familiaridade} 
+
+
+\begin{figure}
+\subfigure[Artistas com novidade]{
+ \includegraphics[width=.45\columnwidth]{figs/ecdf_n_fam.png} \label{fig:ecdf_fam_new}}
+ \subfigure[Artistas conhecidos]{
+ \includegraphics[width=.45\columnwidth]{figs/ecdf_old_fam.png}  \label{fig:ecdf_fam_old}}
+  \caption{Frequência acumulada da familiaridade dos artistas para os ouvintes.}
+  \label{fig:ecdf_fam}
+\end{figure} 
+
+
+
+A Figura \ref{fig:ecdf_fam} representa gráficos da distribuição acumulada da familiaridade dos artistas para os ouvintes. Podemos observar que os valores da familiaridade para os artistas com novidade (Figura \ref{fig:ecdf_fam_new}) são em geral menores que os valores para os artistas conhecidos (Figura \ref{fig:ecdf_fam_old}).
+
+\subsection{Popularidade}
+Para calcular a popularidade, utilizamos o logaritmo na base 10 do número de ouvintes do artista no Last.FM. O logaritmo foi utilizado pois a distribuição da popularidade dos artistas é enviesada (\ref{fig:listeners_lastfm}).
+
+	
+\begin{figure*}[htp]
+  \centering
+  \subfigure[Número de ouvintes dos artistas]{\includegraphics[scale=0.45]{figs/listeners.pdf}\label{fig:listeners}}\quad
+  \subfigure[Número de ouvintes dos artistas (log linear)]{\includegraphics[scale=0.45]{figs/listeners_log.pdf} \label{fig:listeners_log} }
+  \caption{Número de ouvintes dos artistas do Last.fm}
+  \label{fig:listeners_lastfm}
+\end{figure*}
+
+A Figura \ref{fig:ecdf_pop} representa gráficos da distribuição acumulada da popularidade dos artistas escutados pelos ouvintes. Podemos observar que os valores da popularidade dos artistas com novidade (Figura \ref{fig:ecdf_pop_new}) são em geral um pouco menores que os valores para os artistas conhecidos (Figura \ref{fig:ecdf_pop_old}).
+
+\begin{figure}
+\subfigure[Artistas com novidade]{
+ \includegraphics[width=.45\columnwidth]{figs/ecdf_n_pop.png} \label{fig:ecdf_pop_new}}
+ \subfigure[Artistas conhecidos]{
+ \includegraphics[width=.45\columnwidth]{figs/ecdf_old_pop.png}  \label{fig:ecdf_pop_old}}
+  \caption{Frequência acumulada da popularidade dos artistas escutados pelos ouvintes (já com valor transformado pelo log na base 10).}
+  \label{fig:ecdf_pop}
+\end{figure} 
+
+\subsection{Preferências}
+	Para mensurar o quanto o ouvinte preferiu a novidade, foram utilizados duas métricas: a atenção total e o período de atenção.  Como novidades podem ser descobertas em todo o Período de Experimento, alguns destes artistas possuem uma janela de tempo no experimento menor (artistas escutadas no final do Período de Experimento). Para contornar esse problema, utilizamos duas soluções. Primeiro, utilizamos como denominador no cálculo das métricas o número de semanas da Janela de Tempo de exposição à novidade, que vai da primeira semana que foi escutada a novidade até o fim do Período de Experimento. Segundo, como mencionado na Seção ~\ref{sec:timeline}, apenas as novidades descobertas no Período de Observação foram consideradas na análise, mas todo o Período de Experimento foi utilizado para cálculo das métricas. Isso dá a cada novidade um mínimo de 6 meses de coleta de dados, que limita um possível viés para Janelas de Tempo pequenas.
+	
+	A atenção total representa a atenção que o ouvinte deu para o artista no Período de Experimento. A atenção total do ouvinte para o artista é representada pelo total de número de execuções de músicas do artista que ele escutou no Período de Experimento, dividido pelo número de semanas de sua Janela de Tempo. 
+		
+	Já o período de atenção o tempo que o ouvinte deu atenção ao artista. Assim, é o número de semanas que o ouvinte escutou o artista dividido pelo número de semanas de sua Janela de Tempo.
+	
+
