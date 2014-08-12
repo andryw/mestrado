@@ -1,9 +1,0 @@
-﻿DOM Começar histogramas
-SEG Histogramas / escolher exemplos dos grupos
-TER Criar gráfico de força para meu perfil / Testar gráfico para exemplos
-QUA Criar gráfico dos grupos / Colocar figura dos centróides 
-QUI Conclusão / detalhes dos grupos
-SEX Ajeitar referências e terminar correçõs
-
-SAB DOM Refs e gráficos
-
