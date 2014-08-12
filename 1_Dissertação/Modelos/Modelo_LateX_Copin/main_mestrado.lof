@@ -1,0 +1,39 @@
+\select@language {portuges}
+\select@language {english}
+\select@language {portuges}
+\select@language {english}
+\select@language {portuges}
+\addvspace {10\p@ }
+\addvspace {10\p@ }
+\contentsline {figure}{\numberline {2.1}{\ignorespaces \'Albuns recomendados pelo site Amazon.com ao pesquisar pelo White Album, dos Beatles. Os 10 primeiros s\~ao outros \'albuns dos Beatles.}}{7}
+\addvspace {10\p@ }
+\addvspace {10\p@ }
+\contentsline {figure}{\numberline {4.1}{\ignorespaces Linha do tempo utilizada no trabalho}}{14}
+\addvspace {10\p@ }
+\contentsline {figure}{\numberline {5.1}{\ignorespaces Distribui\c c\~ao acumulada do n\'umero de grupos}}{23}
+\contentsline {figure}{\numberline {5.2}{\ignorespaces Exemplos de dois perfis de ouvintes. Cada c\IeC {\'\i }rculo representa um grupo de artistas e a dist\^ancia entre os c\IeC {\'\i }rculos \'e proporcional a similaridade entre os grupos. O tamanho de cada c\IeC {\'\i }rculo \'e proporcional a quantidade relativa de m\'usicas dos artistas de cada grupo escutadas pelo ouvinte.}}{24}
+\contentsline {subfigure}{\numberline {(a)}{\ignorespaces {Perfil com alta ecleticidade.}}}{24}
+\contentsline {subfigure}{\numberline {(b)}{\ignorespaces {Perfil com pouca ecleticidade}}}{24}
+\contentsline {figure}{\numberline {5.3}{\ignorespaces Frequ\^encia acumulada da familiaridade dos artistas para os ouvintes.}}{26}
+\contentsline {subfigure}{\numberline {(a)}{\ignorespaces {Artistas com novidade}}}{26}
+\contentsline {subfigure}{\numberline {(b)}{\ignorespaces {Artistas conhecidos}}}{26}
+\contentsline {figure}{\numberline {5.4}{\ignorespaces N\'umero de ouvintes dos artistas do last.fm}}{27}
+\contentsline {subfigure}{\numberline {(a)}{\ignorespaces {N\'umero de ouvintes dos artistas}}}{27}
+\contentsline {subfigure}{\numberline {(b)}{\ignorespaces {N\'umero de ouvintes dos artistas (log linear)}}}{27}
+\contentsline {figure}{\numberline {5.5}{\ignorespaces Frequ\^encia acumulada da popularidade dos artistas escutados pelos ouvintes (j\'a com valor de log para o n\'umero de ouvintes).}}{27}
+\contentsline {subfigure}{\numberline {(a)}{\ignorespaces {Artistas com novidade}}}{27}
+\contentsline {subfigure}{\numberline {(b)}{\ignorespaces {Artistas conhecidos}}}{27}
+\addvspace {10\p@ }
+\contentsline {figure}{\numberline {6.1}{\ignorespaces Distribui\c c\~ao do coeficiente Spearman de correla\c c\~ao entre os aspectos das novidades e as prefer\^encias de cada ouvinte dos dados. As \'areas sombreadas representam a parte dos sujeitos com correla\c c\~ao maior que 0.15 e menor que -0.15.}}{31}
+\contentsline {subfigure}{\numberline {(a)}{\ignorespaces {Aten\c c\~ao total e \GenericError { }{LaTeX Error: There's no line here to end}{See the LaTeX manual or LaTeX Companion for explanation.}{Your command was ignored.\MessageBreak Type I <command> <return> to replace it with another command,\MessageBreak or <return> to continue without it.}\par \let \reserved@d = *\def \par }}}{31}
+\contentsline {subfigure}{\numberline {(b)}{\ignorespaces {Aten\c c\~ao total e popularidade}}}{31}
+\contentsline {subfigure}{\numberline {(c)}{\ignorespaces {Per\IeC {\'\i }odo de aten\c c\~ao e familiaridade}}}{31}
+\contentsline {subfigure}{\numberline {(d)}{\ignorespaces {Per\IeC {\'\i }odo de aten\c c\~ao e popularidade}}}{31}
+\addvspace {10\p@ }
+\contentsline {figure}{\numberline {7.1}{\ignorespaces N\'umero de grupo X Dist\^ancia m\'edia dentro dos grupos. O joelho do gr\'afico est\'a em torno da configura\c c\~ao com 7 grupos.}}{35}
+\contentsline {figure}{\numberline {7.2}{\ignorespaces Centr\'oides dos 7 grupos encontrados na an\'alise. As m\'etricas est\~ao normalizadas pelo z-score, onde zero representa a m\'edia de todos os ouvintes, e a unidade de varia\c c\~ao \'e um desvio padr\~ao, para cada m\'etrica. No eixo vertical, \textit {fam} significa a familiaridade, \textit {pop} significa popularidade, \textit {AT} significa aten\c c\~ao total.}}{36}
+\addvspace {10\p@ }
+\contentsline {figure}{\numberline {8.1}{\ignorespaces N\'umero de grupo X Dist\^ancia m\'edia dentro dos grupos.}}{44}
+\contentsline {figure}{\numberline {8.2}{\ignorespaces Centr\'oides dos 6 grupos encontrados na an\'alise da diferen\c ca das correla\c c\~oes}}{44}
+\addvspace {10\p@ }
+\addvspace {10\p@ }

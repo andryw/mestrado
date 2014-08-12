@@ -1,0 +1,4 @@
+﻿métrica;artistas com novidade;artistas conhecidos
+total;389.853;1.202.869
+média (desvio padrão);32,5 (26,75);100,33 (60,03)
+ouvinte com mínimo de 10;11.989;10.207

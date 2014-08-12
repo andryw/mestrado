@@ -1,0 +1,29 @@
+Recomendações musicais
+	Vargas
+	Belogin
+	O Celma 
+	Zhang	Auralist
+	Naktasuji - Classic
+	O Celama Cano - Popularidade
+	https://www.google.com.br/search?q=An+industrial-strength+content-based+music+recommendation+system.&oq=An+industrial-strength+content-based+music+recommendation+system.&aqs=chrome..69i57j0.372j0j7&sourceid=chrome&es_sm=93&ie=UTF-8
+	https://www.google.com.br/search?q=The+complex+network+of+musical+tastes.&oq=The+complex+network+of+musical+tastes.&aqs=chrome..69i57j69i64l2.228j0j7&sourceid=chrome&es_sm=93&ie=UTF-8
+	
+	S. M. McNee, J. Riedl and J. A. Konstan “Being accurate
+is not enough: how accuracy metrics have hurt
+recommender systems,”
+
+
+recomendações
+N. Aizenberg, Y. Koren, and O. Somekh, “Build your own music
+recommender by modeling internet radio streams,” in Proceedings of the
+21st international conference on World Wide Web, 2012, pp. 1–10
+
+T. Magno and C. Sable, “A comparison of signal based music recommendation
+to genre labels, collaborative filtering, musicological analysis,
+human recommendation and random baseline,” in International Society
+for Music Information Retrieval Conference (ISMIR), 2008, pp. 161–166.
+
+
+playlist
+An Implementation of a Simple Playlist Generator
+Based on Audio Similarity Measures and User Feedback Elias Pampalk
