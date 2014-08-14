@@ -61,6 +61,6 @@
 \contentsline {subsubsection}{An\'alise das correla\c c\~oes envolvendo popularidade}{48}{section*.5}
 \contentsline {subsection}{\numberline {7.3.2}Correla\c c\~ao das rela\c c\~aoes entre prefer\^encias e aspectos das novidades e dos artistas conhecidos}{50}{subsection.7.3.2}
 \contentsline {section}{\numberline {7.4}Grupos de ouvintes baseados na diferen\c ca das rela\c c\~oes entre prefer\^encias e aspectos das novidades e dos artistas conhecidos}{51}{section.7.4}
-\contentsline {chapter}{\numberline {8}Conclus\~ao}{56}{chapter.8}
-\contentsline {section}{\numberline {8.1}Resumo}{56}{section.8.1}
-\contentsline {section}{\numberline {8.2}Implica\c c\~oes}{57}{section.8.2}
+\contentsline {chapter}{\numberline {8}Conclus\~ao}{57}{chapter.8}
+\contentsline {section}{\numberline {8.1}Resumo}{57}{section.8.1}
+\contentsline {section}{\numberline {8.2}Implica\c c\~oes}{58}{section.8.2}
