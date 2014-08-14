@@ -1,6 +1,6 @@
 \chapter{Comparação das novidades com os artistas conhecidos}\label{cap:comparacao}
 
-Até este momento trabalhamos apenas com novidades. Porém, será que as preferências dos ouvintes pelas novidades são as mesmas que pelos artistas conhecidos? Caso esta hipótese seja verdade, o comportamento dos ouvintes para estes dois âmbitos, novidades e não-novidades, seriam similares, podendo estender os resultados das novidades para os itens conhecidos e vice-versa. Para responder esta pergunta expandimos nossos experimentos para englobar também os artistas conhecidos, tentando responder a seguinte pergunta de pesquisa: \textit{As relações entre as preferências dos ouvintes e os aspectos das novidades são as mesmas que as relações entre as preferências dos ouvintes e os aspectos dos artistas já conhecidos?}
+Até este momento trabalhamos apenas com novidades. Porém, é possível que as preferências dos ouvintes pelas novidades são as mesmas que pelos artistas conhecidos? Caso esta hipótese seja verdade, o comportamento dos ouvintes para estes dois âmbitos, novidades e não-novidades, seriam similares, podendo estender os resultados das novidades para os itens conhecidos e vice-versa. Para responder esta pergunta expandimos nossos experimentos para englobar também os artistas conhecidos, tentando responder a seguinte pergunta de pesquisa: \textit{As relações entre as preferências dos ouvintes e os aspectos das novidades são as mesmas que as relações entre as preferências dos ouvintes e os aspectos dos artistas já conhecidos?}
 
 \section{Seleção de sujeitos}
 Para esta análise, utilizamos os mesmos 11.989 sujeitos das análises anteriores e aplicamos um filtro, para selecionar os sujeitos que foram expostos a um número mínimo de artistas conhecidos que permitisse a investigação de relações entre as características destes artistas e as preferências. Filtro similar foi descrito na Seção \ref{sec:Filtros} para a seleção de sujeitos que foram expostos a um número mínimo de novidades.
@@ -9,14 +9,21 @@ Desta maneira, foram excluídos os usuários que escutaram menos de 10 artistas co
 
 \section{Características dos artistas conhecidos}\label{sec:comp_carac}
 		
-Como dito na Seção \ref{sec:timeline}, os artistas conhecidos são os artistas escutados no Período de Observação que já foram escutados previamente no Histórico Inicial do ouvinte. Para eles foram calculadas 3 das 4 métricas que foram calculadas para os artistas com novidade (Capítulo \ref{cap:modelos}): familiaridade e popularidade (aspectos) e total de atenção (preferência).
+Como dito na Seção \ref{sec:timeline}, os artistas conhecidos são os artistas escutados no Período de Observação que já foram escutados previamente no Histórico Inicial do ouvinte. Para eles foram calculadas 3 das 4 métricas que foram calculadas para os artistas com novidade (Capítulo \ref{cap:dados}): familiaridade e popularidade (aspectos) e total de atenção (preferência).
 
 Para calcular as relações entre os aspectos dos artistas conhecidos e as preferências pelos ouvintes, utilizamos a mesma metodologia descrita no Capítulo \ref{cap:pref}. Utilizamos o método de correlação não-paramétrico de Spearman entre cada par de aspecto / preferência.
 
 \section{Comparação entre relações das preferências e aspectos das novidades e dos artistas conhecidos}\label{sec:comp_pref}
-Para guiar nossos experimentos, decidimos especificar a quarta pergunta de pesquisa, que é mais genérica. Assim, tentamos responder duas perguntas de pesquisa. 
+Para guiar nossos experimentos, decidimos especificar a pergunta de pesquisa: \textit{As relações entre as preferências dos ouvintes e os aspectos das novidades são as mesmas que as relações entre as preferências dos ouvintes e os aspectos dos artistas já conhecidos?}, que é mais genérica. Assim, tentamos responder duas perguntas de pesquisa, uma envolvendo a diferença destas relações e outra envolvendo a correlação destas relações.
 
-	A primeira \textit{As relações entre as preferências dos ouvintes e os aspectos das novidades são significantemente diferentes das relações entre as preferências dos ouvintes e os aspectos dos artistas já conhecidas?}	Se as relações comparadas forem significantemente iguais, poderíamos estender os resultados das novidades para o comportamento geral do ouvinte. Se forem diferentes, corroboraremos a importância da análise separada de itens com novidades e itens conhecidos.
+
+
+\subsection{Diferença das relações entre preferências e aspectos das novidades e dos artistas conhecidos} \label{subsec:diferenca_relacoes}
+
+A primeira pergunta levantada foi: \textit{As relações entre as preferências dos ouvintes e os aspectos das novidades são significantemente diferentes das relações entre as preferências dos ouvintes e os aspectos dos artistas já conhecidas?}	Se as relações comparadas forem significantemente iguais, poderíamos estender os resultados das novidades para o comportamento geral do ouvinte. Se forem diferentes, corroboraremos a importância da análise separada de itens com novidades e itens conhecidos.
+
+
+
 
 Para cada um dos 10.207 sujeitos foram calculados os valores das correlações entre a familiariade e o total de atenção e entre a popularidade e o total de atenção, tanto para os artistas com novidade quanto para os artistas conhecidos. Os detalhes destes cálculos foram apresentados no Capítulo \ref{cap:pref} e na Seção \ref{sec:comp_carac}. Desta maneira cada ouvinte possui pares de correlações (Tabela \ref{tab:correlacoes_nov_con}), onde um valor do par é referente aos artistas com novidade e o outro os artistas conhecidos. Por exemplo, cada ouvinte possui um valor de correlação entre a familiaridade e o total de atenção para as novidades e um valor de correlação entre a familiaridade e o total de atenção para os artistas conhecidos. 
 
@@ -54,15 +61,64 @@ A Tabela \ref{tab:testeT} mostra o p-valor e o intervalo de confiança da média d
 \end{center}
 \end{table}
 
-Outro fato que podemos observar da tabela é que o intervalo de confiança, com 95\% de confiança, para as diferenças das correlações entre familiaridade e atenção total para artistas com novidade e artistas conhecidos é [-0,14 -0,13], sugerindo que as preferências pelos artistas conhecidos familiares são maiores que as preferências pelos artistas com novidade familiares. Uma possível explicação seria que os artistas conhecidos mais familiares são os artistas que o ouvinte mais escutou no seu histórico. Assim, naturalmente a preferência por eles é bem maior.
+\subsubsection{Análise das correlações envolvendo familiaridade}
+Um fato que podemos observar da tabela é que o intervalo de confiança, com 95\% de confiança, para as diferenças das correlações entre familiaridade e atenção total para artistas com novidade e artistas conhecidos é [-0,14 -0,13], apontando que as correlação entre a preferência e a familiaridade para os artistas conhecidos  são maiores que para os artistas com novidade. Isto fica evidenciado na Figura \ref{fig:fam_nov_con}. Na figura, para cada ouvinte  (eixo horizontal) plotamos os valores das correlações da preferência com a familiaridade para os artistas conhecidos e artistas com novdade. Os ouvintes foram ordenados pelo valor da diferença entre as correlações. Pode-se perceber que a proporção de ouvintes  com correlação para artistas conhecidos maior que artistas com novidades é bem maior que o contrário.
 
-Já o intervalo de confiança, com 95\% de confiança, para as diferenças das correlações entre popularidade e atenção total para artistas com novidade e artistas conhecidos é [-0,04 -0,03]. Também sugere que as preferências pelos artistas mais populares conhecidos são maiores que pelos artistas mais populares com novidade, apesar de que este intervalo de confiança está mais próximo de zero que o intervalo de confiança anterior.
+  \begin{figure}[htbp]  
+\begin{center}
+    \fbox{\includegraphics[width=17cm]{figs/fam_nov_con.pdf}}
+  \end{center}
+  \caption{Correlações entre familiariade e atenção total para artistas com novidade e artistas conhecidos (eixo vertical) plotado para cada ouvinte (eixo horizontal). Os pontos vermelhos representam os valores para artistas com novidade e os pontos azuis os valores para artistas conhecidos. A linha vertical é vermelha quando o ouvinte possui a correlação para os artistas com novidade menor que para os artistas conhecidos, e é azul do contrário. A linha vertical preta passa pelo ouvinte que possui o valor da diferença das correlações mais próxima a zero. Os usuários foram ordenados pelo valor da diferença das correlações.}
+  \label{fig:fam_nov_con}
+\end{figure}
 
-No geral, podemos concluir que as preferências dos ouvintes por artistas mais familiares e mais populares é menor se os artistas forem novidades do que se eles forem artistas conhecidos. É como se a preferência por artistas conhecidos já esteja consolidada e que ao escutar novidades os ouvintes tendem a explorar mais, escutando no mesmo período de tempo mais artistas menos familiares e menos populares que os artistas conhecidos.
 
+Apesar desse resultado, não sabemos se no geral ambas as correlações para o ouvinte são positivas, negativas ou de sinais diferentes. Podemos tirar conclusões diferentes a partir do sinal das correlações comparadas. Para investigar isso, plotamos a Figura \ref{fig:fam_divid}. A figura foi separada em 6 partes, de acordo com o sinal das correlações e com o sinal da diferença. Podemos perceber que, quando a correlação para os artistas conhecidos é maior que para os artistas com novidade, a maior parte dos ouvintes ou possuem ambas as correlações positivas ou uma positiva e outra negativa, tendo uma pequena porção dos ouvintes possuindo ambas as correlações negativas. 
+
+
+  \begin{figure}[htbp]  
+\begin{center}
+    \fbox{\includegraphics[width=17cm]{figs/fam_divid.pdf}}
+  \end{center}
+  \caption{Correlações entre familiariade e atenção total para artistas com novidade e artistas conhecidos (eixo vertical) plotado para cada ouvinte (eixo horizontal). O gráfico foi divido pelo valor da diferença das correlações (linhas) e pelo sinal das correlações (colunas). Os usuários foram ordenados pelo valor da diferença das correlações.}
+  \label{fig:fam_divid}
+\end{figure}
+
+
+Podemos concluir que, dos ouvintes com correlação entre a familiaridade e atenção total maior para artistas conhecidos que para artistas com novidade, parte possuem uma tendência maior de gostar de artistas conhecidos familares que artistas com novidades familiares, parte possuem uma tendência em gostar de artistas conhecidos familiares e uma tendência em gostar de artistas com novidade não-familiares, enquanto uma pequena parcela têm tendência maior em gostar de artistas com novidade não-familiares que artistas conhecidos não-familiares.
+
+\subsubsection{Análise das correlações envolvendo popularidade}
+
+Já o intervalo de confiança, com 95\% de confiança, para as diferenças das correlações entre popularidade e atenção total para artistas com novidade e artistas conhecidos é [-0,04 -0,03]. Isto também sugere que as preferências pelos artistas mais populares conhecidos são maiores que pelos artistas mais populares com novidade, apesar de que este intervalo de confiança está mais próximo de zero que o intervalo de confiança anterior. Na Figura \ref{fig:pop_nov_con} podemos notar que a proporção de ouvintes com correlação entre popularidade e atenção total para artistas conhecidos maior que para artistas com novidade é um pouco maior que o inverso.
+
+
+  \begin{figure}[htbp]  
+\begin{center}
+    \fbox{\includegraphics[width=17cm]{figs/pop_nov_con.pdf}}
+  \end{center}
+  \caption{Correlações entre popularidade e atenção total para artistas com novidade e artistas conhecidos (eixo vertical) plotado para cada ouvinte (eixo horizontal). Os elementos do gráfico são similares aos da Figura \ref{fig:fam_nov_con}}
+  \label{fig:pop_nov_con}
+\end{figure}
+
+Fazendo a mesma análise que fizemos na Subseção anterior, analisando a Figura \ref{fig:pop_divid}, para os ouvintes com correlação envolvendo popularidade maior para os artistas conhecidos que para os artistas com novidade, a proporção dos ouvintes que tem uma tendência em gostar de artistas conhecidos populares e de artistas com novidades não-populares é maior que a proporção dos ouvintes que tem uma tendência maior em gostar de artistas conhecidos populares que artistas com novidade populares. Uma pequena proporção de ouvintes tem uma tendência maior de gostar de artistas com novidade não-populares que de artistas conhecidos não-populares.
+
+  \begin{figure}[htbp]  
+\begin{center}
+    \fbox{\includegraphics[width=17cm]{figs/pop_divid.pdf}}
+  \end{center}
+  \caption{Correlações entre popularidade e atenção total para artistas com novidade e artistas conhecidos (eixo vertical) plotado para cada ouvinte (eixo horizontal). O gráfico foi divido pelo valor da diferença das correlações (linhas) e pelo sinal das correlações (colunas). Os usuários foram ordenados pelo valor da diferença das correlações.}
+  \label{fig:pop_divid}
+\end{figure}
+
+
+Já para os ouvintes com correlação envolvendo popularidade maior para os artistas com novidade que para os artistas conhecidos, a proporção dos ouvintes que tem uma tendência maior em gostar de artistas com novidade populares que artistas conhecidos populares é maior que a proporção dos ouvintes que tem uma tendência em gostar de artistas com novidade populares e de artistas conhecidos não-populares.
+
+Com essas duas análises podemos concluir que as relações entre os aspectos e as preferências para os artistas com novidade e artistas conhecidos são diferentes, existindo nos dados diferentes tipos de sujeitos a partir das características destas duas relações.
+
+\subsection{Correlação das relaçãoes entre preferências e aspectos das novidades e dos artistas conhecidos}
 
 Já a segunda pergunta de pesquisa, \textit{Existe correlação entre as relações das preferências pelos aspectos dos artistas com novidade e as relações das preferências pelos aspectos dos artistas conhecidos?}
-Próximo passo foi verificar se existiam correlações entre as relações calculadas para os artistas com novidade e para os artistas conhecidos. Será que quanto maior a correlação de um ouvinte entre familiaridade e atenção total para artistas com novidade, por exemplo, maior a correlação entre a familiaridade e atenção total para artistas conhecidos? Para responder a pergunta de pesquisa, utilizamos o método de correlação não-paramétrico de Spearman.
+Próximo passo foi verificar se existiam correlações entre as relações calculadas para os artistas com novidade e para os artistas conhecidos. Existe a possibilidade de, por exemplo, quanto maior a correlação de um ouvinte entre familiaridade e atenção total para artistas com novidade, maior a correlação entre a familiaridade e atenção total para artistas conhecidos? Para responder a pergunta de pesquisa, utilizamos o método de correlação não-paramétrico de Spearman.
 
 
 \begin{table} [htpb]
@@ -82,64 +138,91 @@ Próximo passo foi verificar se existiam correlações entre as relações calculadas
   
  Como podemos observar na Tabela \ref{tab:comp_cor}, a correlação é baixa em todos os casos. Não podemos afirmar, por exemplo, que dado dois ouvintes, se um possuir maior correlação entre familiaridade e período de atenção para novidades que o outro ouvinte ele terá maior chance de ter maior correlação entre familiaridade e período de atenção para artistas conhecidos, e vice-versa. 
  
- Esta falta de correlação geral pode ser ocasionada pela diversidade de comportamentos para novidades e artistas conhecidos dos ouvintes. Levantamos a hipótese de que, por exemplo, existem ouvintes que possuem uma preferência mais forte por novidades familiares que por artistas conhecidos familiares, enquanto outros não. Hipótese semelhante a esta foi exposta no Capítulo \ref{cap:pref}, que nos levou a criar perfis de ouvintes baseados nas relações entre preferências e os aspectos das novidades (Capitulo \ref{sec:grupos}). Desta maneira, fizemos uma investigação parecida para testar a hipótese. 
- 
+ Esta falta de correlação geral pode ser ocasionada pela diversidade de comportamentos para novidades e artistas conhecidos dos ouvintes. Este resultado, junto com os diferentes tipos de ouvintes analisados na Subseção \ref{subsec:diferenca_relacoes}, nos fez seguir a análise feita no Capítulo \ref{sec:grupos}, onde criamos perfis de ouvintes baseados nas relações entre preferências e os aspectos das novidades (Capitulo \ref{sec:grupos}). Próximo capítulo abordará a criação de perfis envolvendo as relações entre aspectos e preferências para as novidades como também as relações para artistas conhecidos. 
 
 
 \section{Grupos de ouvintes baseados na diferença das relações entre preferências e aspectos das novidades e dos artistas conhecidos}
 
-Como as correlações encontradas na segunda pergunta de pesquisa da seção anterior foram baixas, seguindo a metodologia dos Capítulos \ref{cap:pref} / \ref{sec:grupos} tentamos encontrar perfis de ouvintes, com o intuito de responder a seguinte pergunta: \textit{Quais os diferentes perfis de ouvintes baseados nas diferenças das relações preferências / aspectos das novidades e dos itens conhecidos?}
+Seguindo a metodologia dos Capítulos \ref{cap:pref} / \ref{sec:grupos} tentamos encontrar perfis de ouvintes, com o intuito de responder a seguinte pergunta: \textit{Quais os diferentes perfis de ouvintes baseados nas relações entre os aspectos e preferências para as novidades e as relações entre aspectos e preferências para artistas conhecidos?}
 
-Primeiro passo foi calcular duas diferenças, para cada ouvinte: primeiro, a diferença entre as correlações da familiaridade e atenção total das novidades e dos artistas conhecidos (linha 1 da Tabela \ref{tab:correlacoes_nov_con}) e segundo, a diferença entre as correlações da popularidade e atenção total das novidades e dos artistas conhecidos (linha 2 da Tabela \ref{tab:correlacoes_nov_con}) .	
+Para isso utilizamos 7 métricas, 5 utilizadas no Capítulo \ref{sec:grupos} junto com correlação entre a familiaridade dos artistas conhecidos e a atenção total e a correlação entre a popularidade dos artistas conhecidos e a atenção total. As 7 métricas estão listadas a seguir:
+\begin{enumerate}
+ 
+  \item \textit{Correlação entre a familiaridade das novidades e a atenção total dedicada a elas durante o experimento.}
+  \item \textit{Correlação entre popularidade das novidades e a atenção total dedicada a elas durante o experimento.}
 
-Com estas diferenças em mãos utilizamos o algoritmo de agrupamento aglomerativo hierárquico. A escolha do número de grupos foi baseada no método do joelho. Na imagem \ref{fig:height_diferenca} podemos observar um início de joelho entre as configurações com 4 e 6 grupos. Comparando os centróides das configurações de 6 e 7 grupos (Tabela \ref{tab:centroides_grupos_old}), podemos notar que o centróide adicionado na configuração de 7 grupos (Centróide 7) é similar ao Centróide 5. Assim, como adicionar um
-grupo na configuração 6 não muda muito, escolhemos a configuração de 6 grupos.
+  \item \textit{Ecleticidade}
+
+  \item \textit{Popularidade média dos artistas do perfil do ouvinte} 
+
+  \item \textit{Proporção de novidades escutadas pelo ouvinte no Período de Observação} 
+
+  \item \textit{Correlação entre a familiaridade dos artistas conhecidos e a atenção total dedicada a elas durante o experimento.}
+  \item \textit{Correlação entre popularidade dos artistas conhecidos e a atenção total dedicada a elas durante o experimento.}
+
+\end{enumerate}
+
+Para fazer o agrupamento d   os sujeitos foi utilizada a mesma metodologia do Capítulo \ref{sec:grupos}, um método de agrupamento aglomerativo hierárquico utilizando as variáveis normalizadas baseados no Z-Score.
+
+Para auxiliar na escolha do número de grupos, plotamos a Figura \ref{fig:hetero_conhec1}, que mostra a distância média dentro dos grupos para cada configuração de número de grupos. Utilizando o método do joelho, a distância média dentro dos grupos começa a aumentar vertiginosamente nas configurações com menos de 10 grupos. Assim, analisamos as configuração com 10 e 11 grupos.
+
 
 \begin{figure}[htbp]
 \center
-\includegraphics[width=0.7\columnwidth]{height_diferenca.pdf}
-\caption{Número de grupo X Distância média dentro dos grupos.}
-  \label{fig:height_diferenca}
+\includegraphics[width=0.7\columnwidth]{media1.pdf}
+\caption{Número de grupo X Distância média dentro dos grupos. O joelho do gráfico está em torno da configuração com 10 grupos.}
+  \label{fig:hetero_conhec1}
 \end{figure} 
+
+A Tabela \ref{tab:tab_conhec} mostra os valores dos centróides para a solução de 10 grupos e o centróide criado na solução de 11 grupos (Centróide 11). Como podemos ver, o Centróide 7 é similar ao Centróide 11. Desta maneira, escolhemos a configuração com 10 grupos.
+
+ % \newcolumntype{C}{>{\centering\arraybackslash}m{2.5em}}
 
 \begin{table} 
  \begin{center}
   
+
 \pgfplotstabletypeset[
     col sep=semicolon,
     string type,
-    every head row/.style={before row=\hline,after row=\hline},
+    every head row/.style={before row=\hline,after row=
+    { & nov & nov & & & & conhec & conhec \\
+    \hline}},
     every last row/.style={after row=\hline},
     every first column/.style={
-		column type/.add={|}{}
-		},
-		every last column/.style={
-		column type/.add={}{|}
-		}]
-     {centroides_old.csv}     
-      \caption{Centróides para a configuração com 6 grupos e com 7 grupos}
-      \label{tab:centroides_grupos_old}
+    column type/.add={|}{}
+    },
+    every last column/.style={
+    column type/.add={}{|}
+    }]
+     {centroides_junto-conhec.csv}     
+      \caption{Centróides para as configurações com 10 e 11 grupos}
+      \label{tab:tab_conhec}
     \end{center}
 \end{table}
 
-Após a escolha dos 6 grupos de ouvintes, utilizamos o centróide de cada grupo para analisar as suas principais características.  A Figura \ref{fig:clusters_diferenca} representa os valores dos centróides. 
+
+Após a escolha de 10 grupos de ouvintes, utilizamos o centróide de cada grupo para analisar as suas principais características.  A Figura \ref{fig:clusters_conhec} representa os valores dos centróides normalizados. Comparando com os grupos da análise anterior (Figura \ref{fig:clusters2}), podemos notar que 8 dos 10 grupos possuem características similares aos 7 grupos da primeira análise. O grupo de Exploradores foi desmembrado em 2, por isso 8 grupos similares. A seguir temos os rótulos e as características dos grupos:
 
 \begin{figure}[htbp]
-\center
-\includegraphics[width=1.0\columnwidth]{clusters_diferenca.pdf}
-\caption{Centróides dos 6 grupos encontrados na análise da diferença das correlações}
-  \label{fig:clusters_diferenca}
+\includegraphics[scale=0.78]{clusterstodosconhec.pdf}
+\caption{Centróides dos 10 grupos encontrados na análise. As métricas estão normalizadas pelo z-score, onde zero representa a média de todos os ouvintes, e a unidade de variação é um desvio padrão, para cada métrica. No eixo vertical, \textit{fam} significa a familiaridade, \textit{pop} significa popularidade, \textit{AT} significa atenção total.}
+  \label{fig:clusters_conhec}
 \end{figure} 
 
-
-Podemos dividir os grupos em quatro tipos: 
+%total: 11.449
 \begin{enumerate}
-	\item Tipo I - Preferências similares para novidades e itens conhecidos [total de ouvintes: 2.427 (23\%)]: Composto pelo grupo 1, o centroide deste evidencia que as diferenças entre as correlações, dos dois pares de preferência / aspecto, calculadas para novidades e itens conhecidos, são próximas a zero.  %\lma{colocar exemplo de ouvinte?}%
-	\item Tipo II - Correlações para itens conhecidos maiores que para novidades [total de ouvintes: 2.833 (27.7 \%)]: O segundo tipo é composto pelos grupos 2 e 3, onde as correlações, dos dois pares de preferência / aspecto, são maiores para os itens conhecidos que para as novidades, seja em maior (grupo 2) ou menor (grupo 3) grau.% \lma{exemplo}%
-	\item Tipo III - Correlação para itens conhecidos maior que para novidades em apenas um aspecto [total de ouvintes: 4.529 (44.3 \%)]: composto pelos grupos 4 e 5, apenas um par preferência / aspecto possui correlação para itens conhecidos maior que para novidades, enquanto que o outro par é próximo a zero. O grupo 4 é formado no geral por ouvintes que possuem correlações entre preferência e familiaridade para itens conhecidos maiores que para novidades. Já o grupo 5 é formado no geral por ouvintes que possuem correlações entre preferência e popularidade para itens conhecidos maiores que para novidades.% \lma{exemplo}%
-	\item Tipo IV - Correlação das preferências e popularidade para novidades maior que para itens conhecidos [total de ouvintes: 418 (5\%)]: por último, este tipo de ouvinte possui correlação entre preferência e popularidade maior para novidades que para artistas conhecidos. Composto pelo grupo 6.
-	
-	Boa parte dos grupos (4 dos 6) são formados no geral por ouvintes que possuem pelo menos correlação de algum par preferência / aspecto maior para itens conhecidos que para novidades. Isso corrobora os resultados encontrados na Seção \ref{sec:comp_pref}, que mostra que no geral os ouvintes possuem correlações maiores para itens conhecidos que para novidades. Cerca de 23\% dos ouvintes estão no grupo de comportamento parecido para novidades e itens conhecidos. Assim, poderíamos tentar prever comportamento para novidades baseados no comportamento de itens conhecidos para apenas 1/4 dos ouvintes, enquanto os demais precisariam de um tratamento diferenciado para estes dois tipos de comportamentos.
+    \item Averso a artistas diferentes [total de ouvintes: 2317 (20\%)]: Os ouvintes que preferem novidades familiares e populares possuem uma tendência a gostar de artistas conhecidos populares.
+    \item Apreciador de surpresas [total de ouvintes: 1859 (17\%)]: Os ouvintes que preferem novidades não-familiares e pouco populares 
+    \item Descobridores do mainstream [total de ouvintes: 1022 (8\%)]: Os ouvintes que preferem novidades não-familiares e populares possuem uma tendência a gostar tanto de artistas conhecidos populares quanto de artistas conhecidos familiares.
+    \item Especializados em seu estilo [total de ouvintes: 1467 (14\%)]: Ouvintes que preferem novidades pouco populares e familiares, além de possuirem pouca ecleticidade.
+     \item Altamente eclético [total de ouvintes: 2456 (21\%)]: Os ouvintes que possuem alta ecleticidade possuem uma tendência a gostar de artistas conhecidos não familiares
+    \item Exploradores I [total de ouvintes: 1047 (9\%)]: O primeiro grupo de ouvintes que possuem alta proporção de novidades escutadas durante o Período de Observação possuem uma tendência a gostar de artistas conhecidos populares.
+    \item Exploradores II [total de ouvintes: 1047 (9\%)]: O segundo grupo de ouvintes que possuem alta proporção de novidades escutadas durante o Período de Observação possuem uma tendência a gostar de artistas conhecidos não populares.
+    \item Underground [total de ouvintes: 1281 (11\%)]: Os ouvintes com hábito musical marcado por artistas pouco populares possuem tendência a gostar de artistas conhecidos populares e não familiares. Esta tendência também é refletida nos artistas com novidade.
+    \item Averso a artistas conhecidos diferentes [total de ouvintes: 1281 (11\%)]: Ouvintes com tendência a gostar de artistas conhecidos populares e familiares. As tendências para os artistas conhecidos são similares as tendências para os artistas com novidade do Grupo I.
+    \item Apreciador de artistas conhecidos não-usuais [total de ouvintes: 1281 (11\%)]: Ouvintes com tendência a gostar de artistas conhecidos não populares e não familiares. As tendências para os artistas conhecidos são similares as tendências para os artistas com novidade do Grupo II.
+
+  \end{enumerate}
 	
 	% 2427 + 418 + 1256 + 1855 + 2674+ 1577 = 10207
-\end{enumerate}

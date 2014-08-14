@@ -1,9 +1,4 @@
-﻿- Terminar análise
-	2 horas
-- Escrever análise
-	4 horas
-
-- Trabalhos futuros 
+﻿- Trabalhos futuros 
 	2 horas
 	
 - Ajeitar gráficos dos perfis 

@@ -7,16 +7,16 @@
 \addvspace {10\p@ }
 \addvspace {10\p@ }
 \addvspace {10\p@ }
-\contentsline {table}{\numberline {4.1}{\ignorespaces Sum\'ario dos dados coletados.}}{22}
-\contentsline {table}{\numberline {4.2}{\ignorespaces Tags do artista Michael Jackson, junto com o valor normalizado de cada uma.}}{24}
-\contentsline {table}{\numberline {4.3}{\ignorespaces N\'umero de ouvintes (popularidade) de alguns artistas no Last.FM}}{24}
+\contentsline {table}{\numberline {4.1}{\ignorespaces Sum\'ario dos dados coletados.}}{22}{table.4.1}
+\contentsline {table}{\numberline {4.2}{\ignorespaces Tags do artista Michael Jackson, junto com o valor normalizado de cada uma.}}{24}{table.4.2}
+\contentsline {table}{\numberline {4.3}{\ignorespaces N\'umero de ouvintes (popularidade) de alguns artistas no Last.FM}}{24}{table.4.3}
 \addvspace {10\p@ }
-\contentsline {table}{\numberline {5.1}{\ignorespaces Correla\c c\~ao (Coeficiente de Spearman) entre aspectos da novidade e prefer\^encias, analisando todas as novidades juntas}}{31}
+\contentsline {table}{\numberline {5.1}{\ignorespaces Correla\c c\~ao (Coeficiente de Spearman) entre aspectos da novidade e prefer\^encias, analisando todas as novidades juntas}}{31}{table.5.1}
 \addvspace {10\p@ }
-\contentsline {table}{\numberline {6.1}{\ignorespaces Centr\'oides para as configura\c c\~oes com 7 grupos e com 8 grupos}}{39}
+\contentsline {table}{\numberline {6.1}{\ignorespaces Centr\'oides para as configura\c c\~oes com 7 grupos e com 8 grupos}}{39}{table.6.1}
 \addvspace {10\p@ }
-\contentsline {table}{\numberline {7.1}{\ignorespaces Correla\c c\~oes calculadas para artistas com novidade e artistas conhecidos.}}{45}
-\contentsline {table}{\numberline {7.2}{\ignorespaces Teste-T pareado entre as correla\c c\~oes dos aspectos e prefer\^encias dos ouvintes para artistas com novidade e artistas conhecidos.}}{45}
-\contentsline {table}{\numberline {7.3}{\ignorespaces Correla\c c\~ao (Coeficiente de Spearman) entre correla\c c\~oes calculadas para novidades (linhas) e artistas conhecidos (colunas)}}{46}
-\contentsline {table}{\numberline {7.4}{\ignorespaces Centr\'oides para a configura\c c\~ao com 6 grupos e com 7 grupos}}{48}
+\contentsline {table}{\numberline {7.1}{\ignorespaces Correla\c c\~oes calculadas para artistas com novidade e artistas conhecidos.}}{45}{table.7.1}
+\contentsline {table}{\numberline {7.2}{\ignorespaces Teste-T pareado entre as correla\c c\~oes dos aspectos e prefer\^encias dos ouvintes para artistas com novidade e artistas conhecidos.}}{45}{table.7.2}
+\contentsline {table}{\numberline {7.3}{\ignorespaces Correla\c c\~ao (Coeficiente de Spearman) entre correla\c c\~oes calculadas para novidades (linhas) e artistas conhecidos (colunas)}}{50}{table.7.3}
+\contentsline {table}{\numberline {7.4}{\ignorespaces Centr\'oides para as configura\c c\~oes com 10 e 11 grupos}}{54}{table.7.4}
 \addvspace {10\p@ }

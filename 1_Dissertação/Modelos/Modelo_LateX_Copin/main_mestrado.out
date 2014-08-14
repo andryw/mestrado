@@ -1,0 +1,58 @@
+\BOOKMARK [0][-]{chapter.1}{Introdu\347\343o}{}% 1
+\BOOKMARK [1][-]{section.1.1}{Motiva\347\343o}{chapter.1}% 2
+\BOOKMARK [1][-]{section.1.2}{Perguntas de pesquisa}{chapter.1}% 3
+\BOOKMARK [1][-]{section.1.3}{Resultados}{chapter.1}% 4
+\BOOKMARK [1][-]{section.1.4}{Organiza\347\343o do documento}{chapter.1}% 5
+\BOOKMARK [0][-]{chapter.2}{Novidades e descobertas no \342mbito musical}{}% 6
+\BOOKMARK [1][-]{section.2.1}{Novidade no consumo em geral}{chapter.2}% 7
+\BOOKMARK [1][-]{section.2.2}{Incorpora\347\343o de novidade em sistemas de recomenda\347\343o}{chapter.2}% 8
+\BOOKMARK [1][-]{section.2.3}{Grupos de pessoas baseados no comportamento}{chapter.2}% 9
+\BOOKMARK [1][-]{section.2.4}{Nossas contribui\347\365es}{chapter.2}% 10
+\BOOKMARK [0][-]{chapter.3}{Conceitos e Modelos}{}% 11
+\BOOKMARK [1][-]{section.3.1}{Tipos dos itens estudados}{chapter.3}% 12
+\BOOKMARK [2][-]{subsection.3.1.1}{Item com novidade / Novidade}{section.3.1}% 13
+\BOOKMARK [2][-]{subsection.3.1.2}{Item conhecido}{section.3.1}% 14
+\BOOKMARK [1][-]{section.3.2}{Caracter\355sticas de um item}{chapter.3}% 15
+\BOOKMARK [2][-]{subsection.3.2.1}{Descritores}{section.3.2}% 16
+\BOOKMARK [2][-]{subsection.3.2.2}{Descri\347\365es}{section.3.2}% 17
+\BOOKMARK [1][-]{section.3.3}{Representa\347\365es do hist\363rico musical}{chapter.3}% 18
+\BOOKMARK [2][-]{subsection.3.3.1}{Artista}{section.3.3}% 19
+\BOOKMARK [2][-]{subsection.3.3.2}{Perfil}{section.3.3}% 20
+\BOOKMARK [2][-]{subsection.3.3.3}{Ecleticidade}{section.3.3}% 21
+\BOOKMARK [1][-]{section.3.4}{Aspectos}{chapter.3}% 22
+\BOOKMARK [2][-]{subsection.3.4.1}{Familiaridade}{section.3.4}% 23
+\BOOKMARK [2][-]{subsection.3.4.2}{Popularidade}{section.3.4}% 24
+\BOOKMARK [1][-]{section.3.5}{Prefer\352ncia dos itens pelos ouvintes}{chapter.3}% 25
+\BOOKMARK [0][-]{chapter.4}{Dados utilizados}{}% 26
+\BOOKMARK [1][-]{section.4.1}{Last.FM}{chapter.4}% 27
+\BOOKMARK [1][-]{section.4.2}{Ouvinte}{chapter.4}% 28
+\BOOKMARK [2][-]{subsection.4.2.1}{Linha do Tempo}{section.4.2}% 29
+\BOOKMARK [2][-]{subsection.4.2.2}{Hist\363rico do usu\341rio}{section.4.2}% 30
+\BOOKMARK [2][-]{subsection.4.2.3}{Filtros}{section.4.2}% 31
+\BOOKMARK [1][-]{section.4.3}{Metadados dos Artistas}{chapter.4}% 32
+\BOOKMARK [1][-]{section.4.4}{Aplica\347\343o dos dados nos modelos}{chapter.4}% 33
+\BOOKMARK [2][-]{subsection.4.4.1}{Perfil}{section.4.4}% 34
+\BOOKMARK [2][-]{subsection.4.4.2}{Ecleticidade}{section.4.4}% 35
+\BOOKMARK [2][-]{subsection.4.4.3}{Familiaridade}{section.4.4}% 36
+\BOOKMARK [2][-]{subsection.4.4.4}{Popularidade}{section.4.4}% 37
+\BOOKMARK [2][-]{subsection.4.4.5}{Prefer\352ncias}{section.4.4}% 38
+\BOOKMARK [0][-]{chapter.5}{Prefer\352ncias dos ouvintes para diferentes aspectos de novidades}{}% 39
+\BOOKMARK [1][-]{section.5.1}{Prefer\352ncias gerais}{chapter.5}% 40
+\BOOKMARK [1][-]{section.5.2}{Prefer\352ncias individuais}{chapter.5}% 41
+\BOOKMARK [0][-]{chapter.6}{Grupos de usu\341rios para diferentes aspectos de novidade}{}% 42
+\BOOKMARK [1][-]{section.6.1}{Conjunto de sujeitos}{chapter.6}% 43
+\BOOKMARK [1][-]{section.6.2}{Dados que caracterizam sujeitos}{chapter.6}% 44
+\BOOKMARK [1][-]{section.6.3}{Algoritmo de agrupamento}{chapter.6}% 45
+\BOOKMARK [1][-]{section.6.4}{Escolha do n\372mero de grupos}{chapter.6}% 46
+\BOOKMARK [1][-]{section.6.5}{Grupos}{chapter.6}% 47
+\BOOKMARK [1][-]{section.6.6}{Discuss\343o dos grupos encontrados}{chapter.6}% 48
+\BOOKMARK [0][-]{chapter.7}{Compara\347\343o das novidades com os artistas conhecidos}{}% 49
+\BOOKMARK [1][-]{section.7.1}{Sele\347\343o de sujeitos}{chapter.7}% 50
+\BOOKMARK [1][-]{section.7.2}{Caracter\355sticas dos artistas conhecidos}{chapter.7}% 51
+\BOOKMARK [1][-]{section.7.3}{Compara\347\343o entre rela\347\365es das prefer\352ncias e aspectos das novidades e dos artistas conhecidos}{chapter.7}% 52
+\BOOKMARK [2][-]{subsection.7.3.1}{Diferen\347a das rela\347\365es entre prefer\352ncias e aspectos das novidades e dos artistas conhecidos}{section.7.3}% 53
+\BOOKMARK [2][-]{subsection.7.3.2}{Correla\347\343o das rela\347\343oes entre prefer\352ncias e aspectos das novidades e dos artistas conhecidos}{section.7.3}% 54
+\BOOKMARK [1][-]{section.7.4}{Grupos de ouvintes baseados na diferen\347a das rela\347\365es entre prefer\352ncias e aspectos das novidades e dos artistas conhecidos}{chapter.7}% 55
+\BOOKMARK [0][-]{chapter.8}{Conclus\343o}{}% 56
+\BOOKMARK [1][-]{section.8.1}{Resumo}{chapter.8}% 57
+\BOOKMARK [1][-]{section.8.2}{Implica\347\365es}{chapter.8}% 58
